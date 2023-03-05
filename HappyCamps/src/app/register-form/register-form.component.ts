@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 
-
 @Component({
   selector: 'app-register-form',
   templateUrl: './register-form.component.html',
@@ -9,7 +8,7 @@ import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms
 })
 export class RegisterFormComponent {
 
-  validateForm!: UntypedFormGroup;
+  validateForm: UntypedFormGroup;
 
   submitForm(): void {
     if (this.validateForm.valid) {
@@ -23,10 +22,10 @@ export class RegisterFormComponent {
     }
   }
 
-  constructor(private fb: UntypedFormBuilder) { }
+  constructor(private formBuilder: UntypedFormBuilder) { }
 
   ngOnInit(): void {
-    this.validateForm = this.fb.group({
+    this.validateForm = this.formBuilder.group({
       userName: [null, [Validators.required, Validators.maxLength(30)]],
       password: [null, [Validators.required, Validators.minLength(8), Validators.maxLength(30)]],
       email: [null, [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
