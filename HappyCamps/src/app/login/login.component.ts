@@ -12,13 +12,19 @@ import { AuthService } from '../services/auth.service';
 export class LoginComponent {
   validateForm!: UntypedFormGroup;
 
+  constructor(private fb: UntypedFormBuilder,
+    private auth:AuthService,
+    private router:Router) {}
+
+
   submitForm(): void {
     if (this.validateForm.valid) {
-      debugger;
       console.log('submit', this.validateForm.value);
       this.auth.login(this.validateForm.value).subscribe({
         next:(res)=>{
+          this.auth.storeToken(res.token)
           alert(res.message)
+          console.log(res)
           this.router.navigate(['home'])
           
         },
@@ -36,8 +42,7 @@ export class LoginComponent {
     }
   }
 
-  constructor(private fb: UntypedFormBuilder,private auth:AuthService,private router:Router) {}
-
+ 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
       Email: [null, [Validators.required]],
