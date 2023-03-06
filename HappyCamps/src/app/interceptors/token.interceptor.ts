@@ -30,6 +30,10 @@ export class TokenInterceptor implements HttpInterceptor {
             alert("Token is expired,please relogin")
             this.router.navigate(['/login'])
           }
+          if(err.status === 403){
+            alert("U do not have perrmision to perform this action.")
+            this.router.navigate(['/login'])
+          }
         }
         return throwError(()=> new Error("Some Other Error occured"))
       })

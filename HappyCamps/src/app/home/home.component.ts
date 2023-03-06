@@ -20,7 +20,7 @@ export class HomeComponent {
         console.log(res)
     })
 
-   this.userStore.getFullNameFromStore().subscribe(
+    this.userStore.getFullNameFromStore().subscribe(
       val=>{
         let fullNameFromToken = this.auth.getFullNameFromToken()
         this.fullName = val || fullNameFromToken

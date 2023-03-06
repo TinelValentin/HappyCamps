@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import {JwtHelperService} from '@auth0/angular-jwt'
+import { LoginUser } from '../Models/login-user';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,36 +11,36 @@ export class AuthService {
   
   private userPayload:any;
 
+  private token:string="";
+
   constructor(private http:HttpClient, private router:Router) {
     this.userPayload = this.decodedToken();
   }
 
-  login(loginObj:any){
-      return this.http.post<any>(this.login_url,loginObj);
+  login(loginObj:LoginUser){
+    return this.http.post<any>(this.login_url,loginObj);
   }
 
   storeToken(tokenValue:string){
-    localStorage.setItem('token',tokenValue);
+    this.token=tokenValue;
   }
 
   getToken(){
-    return localStorage.getItem('token');
+    return this.token;
   }
 
   isLoggedIn():boolean{
-    return !!localStorage.getItem('token');
+    return !!this.token
   }
 
   signOut(){
-      localStorage.clear();
+      this.token="";
       this.router.navigate(['/login'])
   }
   
   decodedToken(){
-      const jwtHelper = new JwtHelperService()
+      const jwtHelper = new JwtHelperService();
       const token = this.getToken()!;
-      console.log("token:",token)
-      console.log("decode token:",jwtHelper.decodeToken(token))
       return jwtHelper.decodeToken(token);
   }
   
@@ -54,5 +55,4 @@ export class AuthService {
       return this.userPayload.role;
     }
   }
-
 }

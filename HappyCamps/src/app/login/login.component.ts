@@ -1,5 +1,4 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
@@ -24,7 +23,6 @@ export class LoginComponent {
           let tokenPayload = this.auth.decodedToken();
           this.userStore.setFullNameForStore(tokenPayload.name)
           this.userStore.setRoleForStore(tokenPayload.role)
-          console.log(res)
           this.router.navigate(['home'])
         },
         error:(err)=>{
