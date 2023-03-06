@@ -10,10 +10,6 @@ export class AuthService {
   
   constructor(private http:HttpClient, private router:Router) {}
 
-  signUp(){
-
-   }
-
   login(loginObj:any){
       return this.http.post<any>(this.login_url,loginObj);
    }
