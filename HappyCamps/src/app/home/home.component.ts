@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { AuthService } from '../services/auth.service';
+import { UserStoreService } from '../services/user-store.service';
 
 @Component({
   selector: 'app-home',
@@ -8,15 +9,31 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  constructor(private auth:AuthService,
-              private api:ApiService){}
+  public fullName:string="";
+  public role:string="";
 
-   ngOnInit(){
+  constructor(private auth:AuthService,private api:ApiService,private userStore:UserStoreService){}
+
+  ngOnInit(){
     this.api.getUsers()
-    .subscribe(res=>{
-      console.log(res)
+      .subscribe(res=>{
+        console.log(res)
     })
-   } 
+
+   this.userStore.getFullNameFromStore().subscribe(
+      val=>{
+        let fullNameFromToken = this.auth.getFullNameFromToken()
+        this.fullName = val || fullNameFromToken
+      }
+    )
+  
+    this.userStore.getRoleFromStore().subscribe(
+      val=>{
+        let roleFromToken = this.auth.getRoleFromToken()
+        this.role = val || roleFromToken
+      } 
+    )
+  } 
   
   logout(){
     this.auth.signOut();

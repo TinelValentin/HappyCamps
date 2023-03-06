@@ -8,7 +8,7 @@ export class ApiService {
 
   private getAllUrl = 'https://localhost:7027/GetAll'
 
-  constructor(private  http:HttpClient) { }
+  constructor(private http:HttpClient) { }
 
   getUsers(){
     return this.http.get<any>(this.getAllUrl)  

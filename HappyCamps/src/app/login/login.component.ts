@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { UserStoreService } from '../services/user-store.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ import { AuthService } from '../services/auth.service';
 export class LoginComponent {
   validateForm!: UntypedFormGroup;
 
-  constructor(private fb: UntypedFormBuilder,private auth:AuthService,private router:Router) {}
+  constructor(private fb: UntypedFormBuilder,private auth:AuthService,private router:Router,private userStore:UserStoreService) {}
 
   submitForm(): void {
     if (this.validateForm.valid) {
@@ -20,9 +21,11 @@ export class LoginComponent {
         next:(res)=>{
           this.auth.storeToken(res.token)
           alert(res.message)
+          let tokenPayload = this.auth.decodedToken();
+          this.userStore.setFullNameForStore(tokenPayload.name)
+          this.userStore.setRoleForStore(tokenPayload.role)
           console.log(res)
           this.router.navigate(['home'])
-          
         },
         error:(err)=>{
           alert(err?.error.message)
