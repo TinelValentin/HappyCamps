@@ -1,0 +1,51 @@
+<div class="page-container">
+    <div class="navigation-bar">
+    </div>
+    <div class="register-card">
+        <div class="register-card-image">
+            <img src="/assets/volunteering.jpg" alt="">
+        </div>
+        <form nz-form [formGroup]="validateForm" class="register-form" (ngSubmit)="submitForm()">
+            <h1 id="register-header">Register</h1>
+            <nz-form-item>
+                <nz-form-control nzErrorTip="Please input your username!">
+                    <nz-input-group nzPrefixIcon="user">
+                        <input type="text" nz-input formControlName="userName" placeholder="Username" />
+                    </nz-input-group>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-control nzErrorTip="Password is invalid">
+                    <nz-input-group nzPrefixIcon="lock">
+                        <input type="password" nz-input formControlName="password" placeholder="Password" />
+                    </nz-input-group>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-control nzErrorTip="Please input your Email!">
+                    <nz-input-group nzPrefixIcon="mail">
+                        <input type="text" nz-input formControlName="email" placeholder="Email" />
+                    </nz-input-group>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-control nzErrorTip="Please input your phone number!">
+                    <nz-input-group nzPrefixIcon="phone">
+                        <input type="text" nz-input formControlName="phone" placeholder="Phone Number" />
+                    </nz-input-group>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-control nzErrorTip="Please input your Instagram!">
+                    <nz-input-group nzPrefixIcon="instagram">
+                        <input type="text" nz-input formControlName="instagram" placeholder="Instagram" />
+                    </nz-input-group>
+                </nz-form-control>
+            </nz-form-item>
+            <div class="register-form-buttons">
+                <button nz-button class="register-form-button">Sign up</button>
+            </div>
+            <span>Already have an account?<a routerLink="/login"> Sign in</a></span>
+        </form>
+    </div>
+</div>
