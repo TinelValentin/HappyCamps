@@ -24,9 +24,6 @@ export class LoginComponent {
           this.userStore.setFullNameForStore(tokenPayload.name)
           this.userStore.setRoleForStore(tokenPayload.role)
           this.router.navigate(['home'])
-        },
-        error:(err)=>{
-          alert(err?.error.message)
         }
       })
     } else {

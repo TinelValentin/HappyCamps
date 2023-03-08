@@ -34,6 +34,10 @@ export class TokenInterceptor implements HttpInterceptor {
             alert("U do not have perrmision to perform this action.")
             this.router.navigate(['/login'])
           }
+          if(err.status === 400){
+            alert("User Invalid")
+            this.router.navigate(['/login'])
+          }
         }
         return throwError(()=> new Error("Some Other Error occured"))
       })
