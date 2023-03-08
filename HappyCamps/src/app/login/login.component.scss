@@ -1,15 +1,88 @@
-.login-form {
-    max-width: 300px;
+@import "../../styles.scss";
+
+.page-container {
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  height: 100vh;
+}
+
+.page-container:after {
+  content: "";
+  background:url("/assets/backgroundImage.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  opacity: 0.4;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+
+}
+
+.card-container {
+  box-shadow: 2px 7px 17px 0px rgba(41, 19, 19, 1);
+  border-radius: 15px;
+  margin-top:10% ;
+  margin-left: auto;
+  margin-right: auto;
+  width: 65%;
+  height: 60vh;
+  background-color: rgba(105, 63, 31, 0.831);
+  display: flex;
+  align-items: center;
+
+  .left-panel {
+    border-radius: 8px;
+    width: 50%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
-  .login-form-margin {
-    margin-bottom: 16px;
+  .right-panel {
+    opacity: 0.8;
+    width: 50%;
+    height: 100%;
+    background-color: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
+}
 
-  .login-form-forgot {
-    float: right;
-  }
+.remember-me {
+  display: flex;
+  align-items: center;
 
-  .login-form-button {
-    width: 100%;
+  label {
+    margin-top: -15px;
+    margin-left: 10px;
   }
+}
+
+.login-form-button {
+  width: 200px;
+  font-size: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  border: transparent;
+  margin-top: 20px;
+}
+
+.login-form-button:hover {
+  background-color: rgb(223, 147, 119);
+}
+
+.login-card-text{
+  text-align: center;
+  font-size: 45px;
+  font-weight: 550;
+  color: white;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
