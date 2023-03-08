@@ -12,7 +12,6 @@ export class AuthService {
   
   private userPayload:any;
 
-
   constructor(private http:HttpClient, private router:Router,private cookieService:CookieService) {
     this.userPayload = this.decodedToken();
   }

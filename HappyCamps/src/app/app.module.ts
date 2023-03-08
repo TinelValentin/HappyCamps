@@ -24,7 +24,6 @@ import { AppRoutingModule } from './routing/routing.module';
 
 const icons: IconDefinition[] = [UserOutline, LockOutline, MailOutline, InstagramOutline, PhoneOutline];
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +44,7 @@ const icons: IconDefinition[] = [UserOutline, LockOutline, MailOutline, Instagra
     NzIconModule.forRoot(icons),
     NzCheckboxModule,
     HttpClientModule,
+    CookieService,
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS,
