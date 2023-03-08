@@ -10,6 +10,7 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     ReactiveFormsModule,
     NzButtonModule,
     NzCheckboxModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS,

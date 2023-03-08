@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import {JwtHelperService} from '@auth0/angular-jwt'
+import { CookieService } from 'ngx-cookie-service';
 import { LoginUser } from '../Models/login-user';
 @Injectable({
   providedIn: 'root'
@@ -11,9 +12,8 @@ export class AuthService {
   
   private userPayload:any;
 
-  private token:string="";
 
-  constructor(private http:HttpClient, private router:Router) {
+  constructor(private http:HttpClient, private router:Router,private cookieService:CookieService) {
     this.userPayload = this.decodedToken();
   }
 
@@ -22,20 +22,22 @@ export class AuthService {
   }
 
   storeToken(tokenValue:string){
-    this.token=tokenValue;
+    this.cookieService.set("jwtToken",tokenValue)
   }
 
   getToken(){
-    return this.token;
+    let jwtToken = this.cookieService.get('jwtToken');
+    return jwtToken;
   }
 
   isLoggedIn():boolean{
-    return !!this.token
+    let jwtToken = this.cookieService.get('jwtToken');
+    return !!jwtToken;
   }
 
   signOut(){
-      this.token="";
-      this.router.navigate(['/login'])
+    this.cookieService.delete('jwtToken');
+    this.router.navigate(['/login'])
   }
   
   decodedToken(){
