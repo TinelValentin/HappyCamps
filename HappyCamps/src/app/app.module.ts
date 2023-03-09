@@ -18,7 +18,6 @@ import { LoginComponent } from './login/login.component';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { HomeComponent } from './home/home.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
-import { CookieService } from 'ngx-cookie-service';
 import {HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './routing/routing.module';
 
@@ -44,7 +43,6 @@ const icons: IconDefinition[] = [UserOutline, LockOutline, MailOutline, Instagra
     NzIconModule.forRoot(icons),
     NzCheckboxModule,
     HttpClientModule,
-    CookieService,
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS,
