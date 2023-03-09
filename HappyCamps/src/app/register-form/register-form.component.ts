@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-register-form',
@@ -12,6 +14,12 @@ export class RegisterFormComponent {
 
   submitForm(): void {
     if (this.validateForm.valid) {
+      this.userservice.registerUser(this.validateForm.value).subscribe({
+        next:(res)=>{
+          alert(res.message)
+          this.router.navigate(['login'])
+        }
+      })
     } else {
       Object.values(this.validateForm.controls).forEach(control => {
         if (control.invalid) {
@@ -22,7 +30,7 @@ export class RegisterFormComponent {
     }
   }
 
-  constructor(private formBuilder: UntypedFormBuilder) { }
+  constructor(private formBuilder: UntypedFormBuilder,private userservice:UserService,private router:Router) { }
 
   ngOnInit(): void {
     this.validateForm = this.formBuilder.group({
@@ -33,5 +41,4 @@ export class RegisterFormComponent {
       instagram: [null, [Validators.required, Validators.pattern("^@.*$")]]
     });
   }
-
 }
