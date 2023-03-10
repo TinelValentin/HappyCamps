@@ -11,6 +11,7 @@ import { UserStoreService } from '../services/user-store.service';
 export class HomeComponent {
   public fullName:string="";
   public role:string="";
+  isCollapsed = false;
 
   constructor(private auth:AuthService,private api:ApiService,private userStore:UserStoreService){}
 
@@ -37,5 +38,9 @@ export class HomeComponent {
   
   logout(){
     this.auth.signOut();
+  }
+
+  toggleCollapsed(): void {
+    this.isCollapsed = !this.isCollapsed;
   }
 }
