@@ -11,17 +11,29 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { HttpClientModule } from '@angular/common/http';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { IconDefinition } from '@ant-design/icons-angular';
-import { UserOutline, LockOutline, MailOutline, InstagramOutline, PhoneOutline } from '@ant-design/icons-angular/icons';
+import { UserOutline, LockOutline, MailOutline, InstagramOutline, PhoneOutline, CalendarOutline, HistoryOutline } from '@ant-design/icons-angular/icons';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { MainComponent } from './main/main.component';
 import { LoginComponent } from './login/login.component';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
+import { NzCardModule } from 'ng-zorro-antd/card';
 import { HomeComponent } from './home/home.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
-import {HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './routing/routing.module';
+import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { en_US } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
 
-const icons: IconDefinition[] = [UserOutline, LockOutline, MailOutline, InstagramOutline, PhoneOutline];
+registerLocaleData(en);
+
+const icons: IconDefinition[] =
+  [UserOutline, LockOutline, MailOutline,
+    InstagramOutline, PhoneOutline, CalendarOutline,
+    HistoryOutline];
 
 @NgModule({
   declarations: [
@@ -43,12 +55,15 @@ const icons: IconDefinition[] = [UserOutline, LockOutline, MailOutline, Instagra
     NzIconModule.forRoot(icons),
     NzCheckboxModule,
     HttpClientModule,
+    NzMenuModule,
+    NzToolTipModule,
+    NzCardModule
   ],
   providers: [{
-    provide:HTTP_INTERCEPTORS,
-    useClass:TokenInterceptor,
-    multi:true,
-  }],
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true,
+  }, { provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

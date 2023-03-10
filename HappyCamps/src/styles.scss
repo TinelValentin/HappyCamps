@@ -3,18 +3,11 @@ body{
 }
 
 $background_color : rgba(215, 135, 133, 0.329);
+$navigation_bar_color : #253422;
 
 input {
     outline: 0;
-    height: 30px;
     font-size: 18px;
-    border-width: 0 0 2px;
-    border-color: rgb(109, 109, 188);
-    margin-bottom: 20px;
-}
-
-input:focus {
-    border-color: rgb(247, 249, 83);
 }
 
 .navigation-bar{
@@ -23,14 +16,18 @@ input:focus {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    background-color: rgba(177, 119, 81, 0.872);
+    background-color: $navigation_bar_color;
     color:white;
 
-    span{
-        margin-left: 5px;
-        margin-top: 2px;
-        margin-right: 5px;
-        text-align: center;
-        color: white;
+    .navigation-icon{
+        margin-top: 5px;
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+        scale: 1.2;
+        span{
+            margin-left: 5px;
+            margin-top: -11px;
+        }
     }
 }
