@@ -27,6 +27,7 @@ import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
+import { NzSelectModule } from 'ng-zorro-antd/select';
 
 registerLocaleData(en);
 
@@ -57,7 +58,8 @@ const icons: IconDefinition[] =
     HttpClientModule,
     NzMenuModule,
     NzToolTipModule,
-    NzCardModule
+    NzCardModule,
+    NzSelectModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
