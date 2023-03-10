@@ -30,7 +30,9 @@ export class RegisterFormComponent {
     }
   }
 
-  constructor(private formBuilder: UntypedFormBuilder,private userservice:UserService,private router:Router) { }
+  constructor(private formBuilder: UntypedFormBuilder,
+    private userservice:UserService,
+    private router:Router) { }
 
   ngOnInit(): void {
     this.validateForm = this.formBuilder.group({
