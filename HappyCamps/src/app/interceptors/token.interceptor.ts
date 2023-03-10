@@ -35,8 +35,7 @@ export class TokenInterceptor implements HttpInterceptor {
             this.router.navigate(['/login'])
           }
           if(err.status === 400){
-            alert("User Invalid")
-            this.router.navigate(['/login'])
+            alert(err.error.message)
           }
         }
         return throwError(()=> new Error("Some Other Error occured"))
