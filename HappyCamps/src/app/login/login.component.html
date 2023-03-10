@@ -1,28 +1,29 @@
 <div class="page-container">
   <div class="navigation-bar">
-    <p>0766542365</p>
-    <span nz-icon [nzType]="'phone'"></span>
+    <div class="navigation-icon">
+      <p>0766542365</p>
+      <span nz-icon [nzType]="'phone'"></span>
+    </div>
   </div>
   <div class="card-container">
     <div class="right-panel">
       <div class="login-card-text">
-        <span>Become</span>
-        <br>
-        <span> a member now</span>
+        <img src="/assets/logo.png" width="310" height="220">
+        <button>Become a member now</button>
       </div>
     </div>
     <form nz-form [formGroup]="validateForm" class="left-panel" (ngSubmit)="submitForm()">
       <h1>Login</h1>
       <nz-form-item>
-        <nz-form-control nzErrorTip="Please input your Email!">
+        <nz-form-control nzBorderless nzErrorTip="Please input your Email!">
           <nz-input-group nzPrefixIcon="user">
-            <input type="text" nz-input formControlName="Email" placeholder="Email" />
+            <input nzBorderless type="text" nz-input formControlName="Email" placeholder="Email" />
           </nz-input-group>
         </nz-form-control>
       </nz-form-item>
       <nz-form-item>
         <nz-form-control nzErrorTip="Please input your Password!">
-          <nz-input-group nzPrefixIcon="lock">
+          <nz-input-group nzBorderless nzPrefixIcon="lock">
             <input type="password" nz-input formControlName="Password" placeholder="Password" />
           </nz-input-group>
         </nz-form-control>

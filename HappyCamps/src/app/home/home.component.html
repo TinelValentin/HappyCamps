@@ -1,1 +1,48 @@
-<button class="btn btn danger" (click)="logout()">Logout</button>
+<div class="page-container">
+  <div class="container-menu">
+    <ul nz-menu class="menu" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+      <li nz-menu-item nz-tooltip nzTooltipPlacement="right" [nzTooltipTitle]="isCollapsed ? 'Events' : ''">
+        <span nz-icon nzType="calendar"></span>
+        <span class="icon-menu">Events</span>
+      </li>
+      <li nz-menu-item nz-tooltip nzTooltipPlacement="right" [nzTooltipTitle]="isCollapsed ? 'Your achievements' : ''">
+        <span nz-icon nzType="history"></span>
+        <span>Achievements</span>
+      </li>
+      <li nz-menu-item nz-tooltip nzTooltipPlacement="right" [nzTooltipTitle]="isCollapsed ? 'Edit account' : ''">
+        <span nz-icon nzType="user"></span>
+        <span>Account</span>
+      </li>
+    </ul>
+    <button class="menu-toggle-button" (click)="toggleCollapsed()">
+      <span nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></span>
+    </button>
+  </div>
+  <div class="vertical-page-container">
+    <div class="image-container">
+      <div class="image-content">
+        <span>Remarkable Network</span>
+        <div>
+          Happy Camps is the largest network in the nonprofit world, with the most volunteers, nonprofits and
+          opportunities to make a difference.</div>
+      </div>
+    </div>
+    <div class="cards-container">
+      <nz-card style="width:300px;" nzTitle="Card title">
+        <p>Card content</p>
+        <p>Card content</p>
+        <p>Card content</p>
+      </nz-card>
+      <nz-card style="width:300px;" nzTitle="Card title">
+        <p>Card content</p>
+        <p>Card content</p>
+        <p>Card content</p>
+      </nz-card>
+      <nz-card style="width:300px;" nzTitle="Card title">
+        <p>Card content</p>
+        <p>Card content</p>
+        <p>Card content</p>
+      </nz-card>
+    </div>
+  </div>
+</div>
