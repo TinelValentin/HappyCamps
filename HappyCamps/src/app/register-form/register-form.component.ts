@@ -12,7 +12,7 @@ import { UserService } from '../services/user.service';
 export class RegisterFormComponent {
 
   validateForm: UntypedFormGroup;
-  public rolesValues = Object.values(Roles)
+  public rolesValues = Object.values(Roles).filter((v)=> isNaN(Number(v)))
 
   submitForm(): void {
     if (this.validateForm.valid) {
