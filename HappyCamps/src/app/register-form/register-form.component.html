@@ -8,9 +8,16 @@
         <form nz-form [formGroup]="validateForm" class="register-form" (ngSubmit)="submitForm()">
             <h1 id="register-header">Register</h1>
             <nz-form-item>
-                <nz-form-control nzErrorTip="Please input your username!">
+                <nz-form-control nzErrorTip="Please input your firstName!">
                     <nz-input-group nzPrefixIcon="user">
-                        <input type="text" nz-input formControlName="userName" placeholder="Username" />
+                        <input type="text" nz-input formControlName="firstName" placeholder="FirstName" />
+                    </nz-input-group>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-control nzErrorTip="Please input your lastName!">
+                    <nz-input-group nzPrefixIcon="user">
+                        <input type="text" nz-input formControlName="lastName" placeholder="LastName" />
                     </nz-input-group>
                 </nz-form-control>
             </nz-form-item>
@@ -31,7 +38,7 @@
             <nz-form-item>
                 <nz-form-control nzErrorTip="Please input your phone number!">
                     <nz-input-group nzPrefixIcon="phone">
-                        <input type="text" nz-input formControlName="phone" placeholder="Phone Number" />
+                        <input type="tel" nz-input formControlName="phoneNumber" placeholder="Phone Number" />
                     </nz-input-group>
                 </nz-form-control>
             </nz-form-item>
@@ -40,6 +47,30 @@
                     <nz-input-group nzPrefixIcon="instagram">
                         <input type="text" nz-input formControlName="instagram" placeholder="Instagram" />
                     </nz-input-group>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-control nzErrorTip="Please input your City!">
+                    <nz-input-group nzPrefixIcon="home">
+                        <input type="text" nz-input formControlName="city" placeholder="City" />
+                    </nz-input-group>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-control nzErrorTip="Please input your BirthDate!">
+                    <nz-input-group nzPrefixIcon="calendar">
+                        <input type="date" nz-input formControlName="birthDate" placeholder="BirthDate" />
+                    </nz-input-group>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-control nzErrorTip="Please select your role!">
+                  <nz-input-group nzPrefixIcon="Role">
+                    <label>Role:</label>
+                    <nz-select formControlName="role" placeholder="Role">
+                      <nz-option *ngFor="let option of rolesValues" [nzLabel]="option" [nzValue]="option">{{ option }}</nz-option>
+                    </nz-select>
+                  </nz-input-group>
                 </nz-form-control>
             </nz-form-item>
             <div class="register-form-buttons">
