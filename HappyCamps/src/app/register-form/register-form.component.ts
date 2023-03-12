@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormGroup, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Roles } from '../Models/roles';
 import { UserService } from '../services/user.service';
@@ -35,7 +35,11 @@ export class RegisterFormComponent {
   constructor(private formBuilder: UntypedFormBuilder,private userservice:UserService,private router:Router) {}
 
   ngOnInit(): void {
-    this.validateForm = this.formBuilder.group({
+    this.validateForm = this.createFormGroup();
+  }
+
+  createFormGroup(): FormGroup {
+    return this.formBuilder.group({
       firstName: [null, [Validators.required, Validators.maxLength(30)]],
       lastName: [null, [Validators.required, Validators.maxLength(30)]],
       password: [null, [Validators.required, Validators.minLength(8), Validators.maxLength(30)]],
