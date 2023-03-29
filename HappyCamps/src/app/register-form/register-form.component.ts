@@ -10,7 +10,6 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./register-form.component.scss']
 })
 export class RegisterFormComponent {
-
   validateForm: UntypedFormGroup;
   public rolesValues = Object.values(Roles).filter((v)=> isNaN(Number(v)))
 

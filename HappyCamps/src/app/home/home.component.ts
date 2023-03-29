@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { AuthService } from '../services/auth.service';
+import { EventService } from '../services/events-service/event.service';
 import { UserStoreService } from '../services/user-store.service';
 
 @Component({
@@ -12,8 +13,9 @@ export class HomeComponent {
   public fullName:string="";
   public role:string="";
   isCollapsed = false;
+  public upcommingEvents:any=[];
 
-  constructor(private auth:AuthService,private api:ApiService,private userStore:UserStoreService){}
+  constructor(private auth:AuthService,private api:ApiService,private userStore:UserStoreService,private eventService:EventService){}
 
   ngOnInit(){
     this.api.getUsers()
@@ -34,6 +36,13 @@ export class HomeComponent {
         this.role = val || roleFromToken
       } 
     )
+
+    this.eventService.getUpcommingEvents().subscribe({
+      next:(res)=>{
+        this.upcommingEvents=res
+        console.log(this.upcommingEvents)
+      }
+    })
   } 
   
   logout(){
