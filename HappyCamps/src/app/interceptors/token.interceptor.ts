@@ -26,7 +26,6 @@ export class TokenInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       catchError((err:any)=>{
         if(err instanceof HttpErrorResponse){
-          debugger;
           if(err.status === 401){
             alert("Token is expired,please relogin")
             this.router.navigate(['/login'])
@@ -39,7 +38,7 @@ export class TokenInterceptor implements HttpInterceptor {
             alert(err.error.message)
           }
         }
-        throw err;
+        return throwError(()=> new Error("Some Other Error occured"))
       })
     );
   }
