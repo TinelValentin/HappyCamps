@@ -22,7 +22,7 @@ export class UserStoreService {
     return this.fullName$.asObservable()
   }
 
-  public  setFullNameForStore(fullname:string){
+  public setFullNameForStore(fullname:string){
     this.fullName$.next(fullname)
   }
 }

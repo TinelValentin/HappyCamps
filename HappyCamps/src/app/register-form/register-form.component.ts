@@ -10,9 +10,7 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./register-form.component.scss']
 })
 export class RegisterFormComponent {
-
   validateForm: UntypedFormGroup;
-  public rolesValues = Object.values(Roles).filter((v)=> isNaN(Number(v)))
 
   submitForm(): void {
     if (this.validateForm.valid) {
@@ -48,7 +46,7 @@ export class RegisterFormComponent {
       instagram: [null, [Validators.required, Validators.pattern("^@.*$")]],
       city: [null, [Validators.required, Validators.maxLength(30)]],
       birthDate:[null,[Validators.required]],
-      role:[null,[Validators.required]]
+      role:[Roles.VOLUNTEER.toString(),[Validators.required]]
     });
   }
 }

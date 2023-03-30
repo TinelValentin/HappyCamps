@@ -63,16 +63,6 @@
                     </nz-input-group>
                 </nz-form-control>
             </nz-form-item>
-            <nz-form-item>
-                <nz-form-control nzErrorTip="Please select your role!">
-                  <nz-input-group nzPrefixIcon="Role">
-                    <label>Role:</label>
-                    <nz-select formControlName="role" placeholder="Role">
-                      <nz-option *ngFor="let option of rolesValues" [nzLabel]="option" [nzValue]="option">{{ option }}</nz-option>
-                    </nz-select>
-                  </nz-input-group>
-                </nz-form-control>
-            </nz-form-item>
             <div class="register-form-buttons">
                 <button nz-button class="register-form-button">Sign up</button>
             </div>

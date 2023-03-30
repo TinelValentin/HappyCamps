@@ -28,20 +28,12 @@
       </div>
     </div>
     <div class="cards-container">
-      <nz-card style="width:300px;" nzTitle="Card title">
-        <p>Card content</p>
-        <p>Card content</p>
-        <p>Card content</p>
-      </nz-card>
-      <nz-card style="width:300px;" nzTitle="Card title">
-        <p>Card content</p>
-        <p>Card content</p>
-        <p>Card content</p>
-      </nz-card>
-      <nz-card style="width:300px;" nzTitle="Card title">
-        <p>Card content</p>
-        <p>Card content</p>
-        <p>Card content</p>
+      <nz-card class="card-item" *ngFor="let event of upcommingEvents" [nzTitle]="event.name">
+        <p>{{ event.description }}</p>
+        <p>Start Date: {{ event.startDate }}</p>
+        <p>End Date Date: {{ event.endDate }}</p>
+        <p>Location: {{ event.location }}</p>
+        <p>Points: {{ event.points }}</p>
       </nz-card>
     </div>
   </div>

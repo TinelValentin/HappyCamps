@@ -41,6 +41,5 @@ export class TokenInterceptor implements HttpInterceptor {
         return throwError(()=> new Error("Some Other Error occured"))
       })
     );
-     
   }
 }
