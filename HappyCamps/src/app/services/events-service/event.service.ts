@@ -10,7 +10,7 @@ export class EventService {
 
   constructor(private http:HttpClient) { }
 
-  getUpcommingEvents(){
+  getUpcomingEvents(){
     return this.http.get<Event[]>(this.base_url);
   }
 }

@@ -1,35 +1,23 @@
 @import "../../styles.scss";
 
-$sideMenuWidth : 200px;
-
 .page-container {
   padding: 0px;
   margin: 0px;
   width: 100%;
-  height: 100vh;
-  display: flex;
-
-}
-
-.container-menu {
-  display: flex;
-  width: $sideMenuWidth;
   height: 100%;
-  z-index: 2;
-  border: transparent;
+  display: flex;
 }
 
-.vertical-page-container{
+.vertical-page-container {
   width: 100%;
   height: 100%;
 }
 
 .image-container {
-  height: 35%;
+  height: 40%;
   z-index: 1;
-  margin-left: -$sideMenuWidth;
-  opacity: 0.5;
-  background: url("/assets/backgroundImage.jpg"), rgb(29, 192, 198);
+  opacity: 0.8;
+  background: url("/assets/backgroundImage.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -56,81 +44,81 @@ $sideMenuWidth : 200px;
 
 .image-container::after {
   content: "";
-  background-color: rgba(0, 0, 0, 0.795);
-  opacity: 0.9;
-  top: 0;
+  background-color: rgb(0, 0, 0);
+  opacity: 0.8;
+  top: 59px;
   left: 0;
   bottom: 0;
   right: 0;
   position: absolute;
   width: 100%;
-  height: 35%;
+  height: 40%;
   z-index: -1;
 }
 
-.menu {
-  height: 100%;
-  background-color: $navigation_bar_color;
-}
-
-.menu-toggle-button {
-  height: 55px;
-  width: 55px;
-  border-radius: 20px;
-  margin-left: -20px;
-  background-color: $navigation_bar_color;
-  border: transparent;
+.image-overlay-button {
+  width: 150px;
+  height: 50px;
+  font-size: 17px;
+  font-weight: 500;
+  background-color: rgb(126, 209, 126);
   color: white;
+  border: 0px;
+  border-radius: 10px;
+  margin-top: 30px;
 }
 
-button:hover {
-  background-color: $navigation_bar_color;
+.image-overlay-button:hover {
+  background-color: #22421d;
 }
 
-[nz-menu-item] {
-  color: white;
-}
-
-[nz-menu-item]:hover {
-  background-color: transparent;
-  color: white;
-}
-
-[nz-menu-item]::selection {
-  background-color: transparent;
-}
-
-[nz-menu-item]:after {
-  border-right: 0px;
-  background-color: transparent;
-
-  .icon-menu{
-    border-left: 3px solid white;
-  }
-}
-
-[nz-menu-item]::selection {
-  background-color: transparent;
-
-  .icon-menu{
-    border-left: 3px solid white;
-  }
-}
-
-// Overwrite this class because it's set as default
-.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
-  color: white;
-  font-weight: bold;
-  border-left: 3px solid white;
-  background-color: transparent;
-}
-
-.cards-container{
+.cards-container {
   display: flex;
   justify-content: space-around;
   margin-top: 50px;
+  margin-bottom: 100px;
 }
 
-.card-item{
-  width:300px;
+.card-item {
+  width: 300px;
+}
+
+.mission-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+
+  span {
+    font-weight: 1000;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #2f7816;
+    font-size: 50px;
+  }
+
+  p {
+    margin-top: 25px;
+    font-weight: bolder;
+    font-size: 20px;
+    width: 800px;
+    text-align: center;
+    line-height: 35px;
+  }
+}
+
+.start-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  button {
+    background-color: #22421d;
+    border: transparent;
+    border-radius: 20px;
+    color: white;
+    font-weight: bolder;
+    font-size: 20px;
+    width: 300px;
+    height: 60px;
+  }
 }
