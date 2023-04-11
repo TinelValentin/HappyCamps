@@ -30,6 +30,7 @@ import en from '@angular/common/locales/en';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
+import { InfoCardComponent } from './info-card/info-card.component';
 
 registerLocaleData(en);
 
@@ -46,6 +47,7 @@ const icons: IconDefinition[] =
     LoginComponent,
     HomeComponent,
     NavigationBarComponent,
+    InfoCardComponent,
   ],
   imports: [
     BrowserModule,

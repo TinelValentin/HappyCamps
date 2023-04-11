@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { MenuItem } from '../Models/menu-item.interface';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class NavigationBarComponent {
 
+  @Input() menuItems : MenuItem[] | undefined
 }

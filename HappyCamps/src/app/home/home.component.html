@@ -1,17 +1,4 @@
-<div class="navigation-bar">
-  <div class="navigation-buttons-container">
-    <a>Events</a>
-    <a>Profile</a>
-    <a>Achievements</a>
-  </div>
-  <div class="logo-textless-container">
-    <img src="/assets/LogoTextless.png" width="130" height="90">
-    <span>HappyCamps</span>
-  </div>
-  <div class="navigation-icon">
-    About
-  </div>
-</div>
+<app-navigation-bar [menuItems]="menuItems"></app-navigation-bar>
 <div class="page-container">
   <div class="vertical-page-container">
     <div class="image-container">
@@ -35,58 +22,21 @@
     <hr width="60%">
     <!-- Cards  -->
     <div class="cards-container">
-      <div class="card-item">
-        <nz-card class="event-card" [nzCover]="coverTemplate">
-          <nz-card-meta nzTitle="Environment" [nzDescription]="descriptionTemplate"></nz-card-meta>
-        </nz-card>
-        <ng-template #coverTemplate>
-          <div class="card-image-container" [style.background-image]="'url(' + '/assets/volunteeringImage1.jpg' + ')'">
-            <div class="card-image-content">
-              <span>Environment</span>
-            </div>
-          </div>
-        </ng-template>
-        <ng-template #descriptionTemplate>
-          Healthy ecosystems clean our water, purify our air, maintain our soil, regulate the climate, recycle nutrients
-          and provide us with food. They provide raw materials and resources for medicines and other purposes.
-        </ng-template>
-      </div>
+      <app-info-card [imageUrl]="'/assets/volunteeringImage1.jpg'"
+        [description]="'Healthy ecosystems clean our water, purify our air, maintain our soil, regulate the climate, recycle nutrients and provide us with food. They provide raw materials and resources for medicines and other purposes.'"
+        [name]="'Environment'">
+      </app-info-card>
 
-      <div class="card-item">
-        <nz-card class="event-card" [nzCover]="coverTemplate2">
-          <nz-card-meta nzTitle="Support" [nzDescription]="descriptionTemplate"></nz-card-meta>
-        </nz-card>
-        <ng-template #coverTemplate2>
-          <div class="card-image-container" [style.background-image]="'url(' + '/assets/volunteeringImage3.jpg' + ')'">
-            <div class="card-image-content">
-              <span>Support</span>
-            </div>
-          </div>
-        </ng-template>
-        <ng-template #descriptionTemplate>
-          Helping others improves social interaction, distracts people from their own problems, and improves self-esteem
-          and competence. Physical Well-Being - helping others leads to increased social integration which allows people
-          to lead more active lifestyles.
-        </ng-template>
-      </div>
+      <app-info-card [imageUrl]="'/assets/volunteeringImage3.jpg'"
+        [description]="'Helping others improves social interaction, distracts people from their own problems, and improves self-esteem and competence. Physical Well-Being - helping others leads to increased social integration which allows people to lead more active lifestyles.'"
+        [name]="'Support'">
+      </app-info-card>
 
-      <div class="card-item">
-        <nz-card class="event-card" [nzCover]="coverTemplate3">
-          <nz-card-meta nzTitle="Impact" [nzDescription]="descriptionTemplate"></nz-card-meta>
-        </nz-card>
-        <ng-template #coverTemplate3>
-          <div class="card-image-container" [style.background-image]="'url(' + '/assets/volunteeringImage4.jpg' + ')'">
-            <div class="card-image-content">
-              <span>Impact</span>
-            </div>
-          </div>
-        </ng-template>
-        <ng-template #descriptionTemplate>
-          Volunteering means giving your time and abilities to aid others without expecting financial compensation. Put
-          simply, volunteering is a service to your community.
-          Nothing gets done by one person alone and every community needs people who give back.
-        </ng-template>
-      </div>
+      <app-info-card [imageUrl]="'/assets/volunteeringImage4.jpg'"
+        [description]="'Volunteering means giving your time and abilities to aid others without expecting financial compensation. Put simply, volunteering is a service to your community. Nothing gets done by one person alone and every community needs people who give back.'"
+        [name]="'Impact'">
+      </app-info-card>
+      
     </div>
     <div class="start-button-container">
       <button class="start-butt">Start to help others now!</button>
