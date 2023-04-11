@@ -1,0 +1,15 @@
+<div class="card-item">
+    <nz-card class="event-card" [nzCover]="coverTemplate">
+      <nz-card-meta [nzTitle]="name" [nzDescription]="descriptionTemplate"></nz-card-meta>
+    </nz-card>
+    <ng-template #coverTemplate>
+      <div class="card-image-container" [style.background-image]="'url(' + imageUrl + ')'">
+        <div class="card-image-content">
+          <span>{{name}}</span>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template #descriptionTemplate>
+      {{description}}
+    </ng-template>
+  </div>

@@ -1,11 +1,13 @@
 <div class="page-container">
-    <div class="navigation-bar">
-    </div>
-    <div class="register-card">
-        <div class="register-card-image">
-            <img src="/assets/volunteering.jpg" alt="">
+    <app-navigation-bar [menuItems]="undefined"></app-navigation-bar>
+    <div class="card-container">
+        <div class="right-panel">
+            <div class="login-card-text">
+                <img src="/assets/logo.png" width="310" height="220">
+                <button>Become a member now</button>
+            </div>
         </div>
-        <form nz-form [formGroup]="validateForm" class="register-form" (ngSubmit)="submitForm()">
+        <form nz-form [formGroup]="validateForm" class="left-panel" (ngSubmit)="submitForm()">
             <h1 id="register-header">Register</h1>
             <nz-form-item>
                 <nz-form-control nzErrorTip="Please input your firstName!">
@@ -58,9 +60,7 @@
             </nz-form-item>
             <nz-form-item>
                 <nz-form-control nzErrorTip="Please input your BirthDate!">
-                    <nz-input-group nzPrefixIcon="calendar">
-                        <input type="date" nz-input formControlName="birthDate" placeholder="BirthDate" />
-                    </nz-input-group>
+                    <nz-date-picker formControlName="birthDate" nzPlaceHolder="Birth Date"></nz-date-picker>
                 </nz-form-control>
             </nz-form-item>
             <div class="register-form-buttons">

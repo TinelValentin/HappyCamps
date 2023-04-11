@@ -1,23 +1,5 @@
+<app-navigation-bar [menuItems]="menuItems"></app-navigation-bar>
 <div class="page-container">
-  <div class="container-menu">
-    <ul nz-menu class="menu" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <li nz-menu-item nz-tooltip nzTooltipPlacement="right" [nzTooltipTitle]="isCollapsed ? 'Events' : ''">
-        <span nz-icon nzType="calendar"></span>
-        <span class="icon-menu">Events</span>
-      </li>
-      <li nz-menu-item nz-tooltip nzTooltipPlacement="right" [nzTooltipTitle]="isCollapsed ? 'Your achievements' : ''">
-        <span nz-icon nzType="history"></span>
-        <span>Achievements</span>
-      </li>
-      <li nz-menu-item nz-tooltip nzTooltipPlacement="right" [nzTooltipTitle]="isCollapsed ? 'Edit account' : ''">
-        <span nz-icon nzType="user"></span>
-        <span>Account</span>
-      </li>
-    </ul>
-    <button class="menu-toggle-button" (click)="toggleCollapsed()">
-      <span nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></span>
-    </button>
-  </div>
   <div class="vertical-page-container">
     <div class="image-container">
       <div class="image-content">
@@ -25,16 +7,40 @@
         <div>
           Happy Camps is the largest network in the nonprofit world, with the most volunteers, nonprofits and
           opportunities to make a difference.</div>
+        <button class="image-overlay-button">Enroll Now</button>
       </div>
     </div>
-    <div class="cards-container">
-      <nz-card class="card-item" *ngFor="let event of upcommingEvents" [nzTitle]="event.name">
-        <p>{{ event.description }}</p>
-        <p>Start Date: {{ event.startDate }}</p>
-        <p>End Date Date: {{ event.endDate }}</p>
-        <p>Location: {{ event.location }}</p>
-        <p>Points: {{ event.points }}</p>
-      </nz-card>
+    <!-- Mission -->
+    <div class="mission-container">
+      <span>Our Mission</span>
+      <p>We are all about creating inclusion and if you are interested in empowering people with a disability to be
+        equal and empowered citizens then we want you! We’re always looking for supportive and reliable volunteers, no
+        matter how much or how little time you’re able to spare. No special skills or qualifications are necessary.</p>
+      <p>Our volunteer programs can be an incredibly rewarding experience for you, but it makes a real difference to the
+        people we support.</p>
     </div>
+    <hr width="60%">
+    <!-- Cards  -->
+    <div class="cards-container">
+      <app-info-card [imageUrl]="'/assets/volunteeringImage1.jpg'"
+        [description]="'Healthy ecosystems clean our water, purify our air, maintain our soil, regulate the climate, recycle nutrients and provide us with food. They provide raw materials and resources for medicines and other purposes.'"
+        [name]="'Environment'">
+      </app-info-card>
+
+      <app-info-card [imageUrl]="'/assets/volunteeringImage3.jpg'"
+        [description]="'Helping others improves social interaction, distracts people from their own problems, and improves self-esteem and competence. Physical Well-Being - helping others leads to increased social integration which allows people to lead more active lifestyles.'"
+        [name]="'Support'">
+      </app-info-card>
+
+      <app-info-card [imageUrl]="'/assets/volunteeringImage4.jpg'"
+        [description]="'Volunteering means giving your time and abilities to aid others without expecting financial compensation. Put simply, volunteering is a service to your community. Nothing gets done by one person alone and every community needs people who give back.'"
+        [name]="'Impact'">
+      </app-info-card>
+      
+    </div>
+    <div class="start-button-container">
+      <button class="start-butt">Start to help others now!</button>
+    </div>
+    <br>
   </div>
 </div>
