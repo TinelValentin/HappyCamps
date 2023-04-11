@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { MenuItem } from '../Models/menu-item.interface';
 
 @Component({
@@ -9,4 +10,10 @@ import { MenuItem } from '../Models/menu-item.interface';
 export class NavigationBarComponent {
 
   @Input() menuItems : MenuItem[] | undefined
+
+  constructor(private router:Router){}
+
+  navigate(menuItem:MenuItem){
+    this.router.navigate([menuItem.path])
+  }
 }

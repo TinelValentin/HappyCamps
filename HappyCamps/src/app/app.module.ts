@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { NzFormModule } from 'ng-zorro-antd/form';
@@ -67,6 +65,7 @@ const icons: IconDefinition[] =
     NzSelectModule,
     NzDatePickerModule
   ],
+
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,

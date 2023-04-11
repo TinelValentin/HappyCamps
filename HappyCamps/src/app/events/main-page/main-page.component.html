@@ -1,0 +1,28 @@
+<nz-table
+      nzShowSizeChanger
+      [nzData]="upcommingEvents"
+      [nzFrontPagination]="false"
+      [nzLoading]="loading"
+      [nzTotal]="total"
+      [nzPageSize]="pageSize"
+      [nzPageIndex]="pageIndex"
+      (nzQueryParams)="onQueryParamsChange($event)">
+      <thead>
+        <tr>
+          <th nzColumnKey="name" [nzSortFn]="true">Name</th>
+          <th nzColumnKey="points" [nzSortFn]="true">points</th>
+          <th nzColumnKey="location" [nzSortFn]="true">location</th>
+          <th nzColumnKey="start date" [nzSortFn]="true">start date</th>
+          <th nzColumnKey="end date" [nzSortFn]="true">end date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of upcommingEvents">
+          <td>{{ data.name }}</td>
+          <td>{{ data.points }}</td>
+          <td>{{ data.location }}</td>
+          <td>{{ data.startDate }}</td>
+          <td>{{ data.endDate }}</td>
+        </tr>
+      </tbody>
+</nz-table>
