@@ -28,6 +28,8 @@ import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 
 registerLocaleData(en);
 
@@ -43,6 +45,7 @@ const icons: IconDefinition[] =
     MainComponent,
     LoginComponent,
     HomeComponent,
+    NavigationBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +63,7 @@ const icons: IconDefinition[] =
     NzToolTipModule,
     NzCardModule,
     NzSelectModule,
+    NzDatePickerModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

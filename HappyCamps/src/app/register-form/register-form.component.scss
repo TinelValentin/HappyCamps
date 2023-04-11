@@ -1,66 +1,125 @@
 @import "../../styles.scss";
 
 .page-container {
-    padding: 0px;
-    margin: 0px;
-    width: 100%;
-    height: 100vh;
-    background-color: $background_color;
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  height: 100vh;
 }
 
-.register-form {
-    margin-left: 70px;
-    max-width: 320px;
+.page-container:after {
+  content: "";
+  background:url("/assets/backgroundImage.jpg"), rgb(29, 192, 198);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  opacity: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+
 }
 
-.register-form-buttons {
-    margin-top: 80px;
-    margin-right: 0px;
-    display: flex;
-    justify-content: space-between;
-    
-     .register-form-button{
-        border-radius: 5px;
-        background-color: rgb(207, 135, 112);
-        margin-right: 10px;
-        border: transparent;
-        margin-bottom: 20px;
-        width: 250px;
-        color: white;
-        font-weight: bold;
-        font-size: 20px;
-        height: 40px;
-    }
+.card-container {
+  box-shadow: 2px 7px 17px 0px rgba(41, 19, 19, 1);
+  border-radius: 5px;
+  border-radius: 15px;
+  margin-top:40px ;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+  height: 80vh;
+  background-color: #677d63d9;
+  display: flex;
+  align-items: center;
 
-    .register-form-button:hover{
-        background-color: rgb(74, 40, 29);
-    }
-}
-
-.register-card {
-    box-shadow: 2px 7px 17px 0px rgba(41, 19, 19, 1);
-    margin: auto;
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    width: 70%;
-    height: 80vh;
-    border-radius: 20px;
+  .left-panel {
+    border-radius: 8px;
+    width: 60%;
+    height: 100%;
     background-color: white;
-}
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
-.register-card-image {
-    img {
-        width: 650px;
-        height: 500px;
+  .right-panel {
+    opacity: 0.9;
+    width: 40%;
+    height: 100%;
+    border-radius: 5px;
+    background-color: inherit;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+
+    button {
+      font-size: 20px;
+      background-color: transparent;
+      color: #ADF6B1;
+      border: transparent;
+      border-radius: 20px;
+      padding: 2px 10px 2px 10px;
     }
+
+    button:hover {
+      color: white;
+    }
+  }
 }
 
-#register-header {
-    margin-top: -20px;
+.remember-me {
+  display: flex;
+  align-items: center;
+
+  label {
+    margin-left: 10px;
+  }
 }
 
-#logo-font{
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
-    color: white
+.register-form-button {
+  width: 200px;
+  background-color: #ADF6B1;
+  font-size: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  border: transparent;
+  margin-bottom: 20px;
+}
+
+.register-form-button:hover {
+  background-color: rgb(223, 147, 119);
+  color: white;
+}
+
+.login-card-text{
+  text-align: center;
+  font-size: 45px;
+  font-weight: 550;
+  color: white;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.logo-textless-container
+{
+  span{
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: -25px;
+  }
+}
+
+.navigation-icon{
+  display: flex;
+  justify-content: center;
+  background-color: #40593c;
+  border-radius: 30px;
+  width: 90px;
+  height: 35px;
+  font-size: 15px;
+  font-weight: 600;
 }
