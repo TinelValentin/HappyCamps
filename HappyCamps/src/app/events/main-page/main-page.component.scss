@@ -1,0 +1,73 @@
+.image-container {
+    height: 150px;
+    width: 200px;
+    border-radius: 15px;
+    background: url("/assets/all1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 0.35s;
+    }
+
+    &:hover {
+        opacity: 0.5;
+
+        &::before {
+            content: '';
+            background-image: url("/assets/LogoTextless.png");
+            background-size: cover;
+            z-index: 2;
+            opacity: 1;
+        }
+    }
+}
+
+.edit-button{
+    width: 70px;
+    height: 35px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(168, 196, 27);
+    cursor: pointer;
+    border: transparent;
+
+    &:hover{
+        background-color:rgb(201, 215, 129); ;
+    }
+}
+
+
+.add-button{
+    width: 45px;
+    height: 35px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(168, 196, 27);
+    cursor: pointer;
+    border: transparent;
+    margin-left: 15px;
+
+    &:hover{
+        background-color:rgb(201, 215, 129); ;
+    }
+}
+
+.table{
+    font-size: 16px;
+}

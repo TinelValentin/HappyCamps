@@ -5,8 +5,6 @@ import { ApiService } from '../services/api.service';
 import { AuthService } from '../services/auth.service';
 import { EventService } from '../services/events-service/event.service';
 import { UserStoreService } from '../services/user-store.service';
-import { User } from '../Models/user';
-import { Roles } from '../Models/roles';
 import { MenuItem } from '../Models/menu-item.interface';
 
 @Component({

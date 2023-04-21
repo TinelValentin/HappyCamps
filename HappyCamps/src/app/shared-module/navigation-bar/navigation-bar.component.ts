@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { MenuItem } from '../Models/menu-item.interface';
+import { MenuItem } from '../../Models/menu-item.interface';
 
 @Component({
   selector: 'app-navigation-bar',

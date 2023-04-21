@@ -1,28 +1,32 @@
+<app-navigation-bar [menuItems]="menuItems"></app-navigation-bar>
 <nz-table
       nzShowSizeChanger
-      [nzData]="upcommingEvents"
+      [nzData]="upcomingEvents"
       [nzFrontPagination]="false"
-      [nzLoading]="loading"
       [nzTotal]="total"
       [nzPageSize]="pageSize"
       [nzPageIndex]="pageIndex"
       (nzQueryParams)="onQueryParamsChange($event)">
       <thead>
         <tr>
+          <th nzColumnKey="image" [width]="230"></th>
           <th nzColumnKey="name" [nzSortFn]="true">Name</th>
           <th nzColumnKey="points" [nzSortFn]="true">points</th>
           <th nzColumnKey="location" [nzSortFn]="true">location</th>
           <th nzColumnKey="start date" [nzSortFn]="true">start date</th>
           <th nzColumnKey="end date" [nzSortFn]="true">end date</th>
+          <th nzColumnKey="edit" [width]="100"><button class="add-button">Add</button></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let data of upcommingEvents">
-          <td>{{ data.name }}</td>
+        <tr *ngFor="let data of upcomingEvents" class="table">
+          <td><div class="image-container" (click)="selectEvent()"></div></td>
+          <td><b>{{ data.name }}</b></td>
           <td>{{ data.points }}</td>
           <td>{{ data.location }}</td>
-          <td>{{ data.startDate }}</td>
-          <td>{{ data.endDate }}</td>
+          <td>{{ data.startDate | date}}</td>
+          <td>{{ data.endDate | date }}</td>
+          <td><button class="edit-button">Edit</button></td>
         </tr>
       </tbody>
 </nz-table>
