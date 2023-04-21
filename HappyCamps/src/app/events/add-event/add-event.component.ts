@@ -9,7 +9,7 @@ import { EventService } from 'src/app/services/events-service/event.service';
   styleUrls: ['./add-event.component.scss']
 })
 export class AddEventComponent {
-  editEventForm!: FormGroup;
+  addEventForm!: FormGroup;
 
   user_email :string
   constructor(private fb:FormBuilder,private eventService:EventService,private auth:AuthService){}
@@ -20,7 +20,7 @@ export class AddEventComponent {
 
   private initializeForm(){
     this.user_email = this.auth.getEmailFromToken()
-    this.editEventForm= this.fb.group({
+    this.addEventForm= this.fb.group({
       startDate:["",[Validators.required]],
       endDate:['',[Validators.required]],
       location:['',[Validators.required]],
@@ -32,9 +32,9 @@ export class AddEventComponent {
 
   submitForm(){
     debugger
-    if(this.editEventForm.valid){
-      console.log(this.editEventForm.value)
-      this.eventService.add_event(this.editEventForm.value).subscribe({
+    if(this.addEventForm.valid){
+      console.log(this.addEventForm.value)
+      this.eventService.add_event(this.addEventForm.value).subscribe({
         next:(res)=>{
           alert(res.message)
         }
@@ -43,25 +43,25 @@ export class AddEventComponent {
   }
 
   get name(){
-    return this.editEventForm.get("name")
+    return this.addEventForm.get("name")
   }
   get startDate() {
-    return this.editEventForm.get('startDate');
+    return this.addEventForm.get('startDate');
   }
   
   get endDate() {
-    return this.editEventForm.get('endDate');
+    return this.addEventForm.get('endDate');
   }
   
   get location() {
-    return this.editEventForm.get('location');
+    return this.addEventForm.get('location');
   }
   
   get organizer() {
-    return this.editEventForm.get('organizer');
+    return this.addEventForm.get('organizer');
   }
   
   get points() {
-    return this.editEventForm.get('points');
+    return this.addEventForm.get('points');
   }
 }

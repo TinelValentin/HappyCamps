@@ -27,6 +27,6 @@ export class EventService {
 
   add_event(event: Event) {
     event.description="123"
-    return this.http.put<any>(this.base_url,event)
+    return this.http.post<any>(this.base_url,event)
   }
 }
