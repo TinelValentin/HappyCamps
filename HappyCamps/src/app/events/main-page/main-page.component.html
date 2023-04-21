@@ -15,7 +15,9 @@
           <th nzColumnKey="location" [nzSortFn]="true">location</th>
           <th nzColumnKey="start date" [nzSortFn]="true">start date</th>
           <th nzColumnKey="end date" [nzSortFn]="true">end date</th>
-          <th nzColumnKey="edit" [width]="100"><button class="add-button">Add</button></th>
+          <th nzColumnKey="edit" [width]="100">
+            <button class="add-button" (click)="addNewEvent()">Add</button>
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -24,9 +26,11 @@
           <td><b>{{ data.name }}</b></td>
           <td>{{ data.points }}</td>
           <td>{{ data.location }}</td>
-          <td>{{ data.startDate | date}}</td>
+          <td>{{ data.startDate | date }}</td>
           <td>{{ data.endDate | date }}</td>
-          <td><button class="edit-button">Edit</button></td>
+          <td>
+            <span class="edit-button" nz-icon nzType="edit" nzTheme="outline" (click)="editEvent(data)"></span>
+          </td>
         </tr>
       </tbody>
 </nz-table>
