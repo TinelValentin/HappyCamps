@@ -1,0 +1,40 @@
+<app-navigation-bar [menuItems]="menuItems"></app-navigation-bar>
+<nz-table nzShowSizeChanger [nzData]="upcomingEvents" [nzFrontPagination]="false" [nzTotal]="total"
+  [nzPageSize]="pageSize" [nzPageIndex]="pageIndex" (nzQueryParams)="onQueryParamsChange($event)">
+  <thead>
+    <tr>
+      <th nzColumnKey="image" [width]="280">
+        <div class="search-container">
+          <label for="search">Search Events</label>
+          <input type="text" id="search" class="search-bar" placeholder="Search..."
+            (ngModelChange)="search($event)" [(ngModel)]="searchText" />
+        </div>
+      </th>
+      <th nzColumnKey="name" [nzSortFn]="true">Name</th>
+      <th nzColumnKey="points" [nzSortFn]="true">points</th>
+      <th nzColumnKey="location" [nzSortFn]="true">location</th>
+      <th nzColumnKey="start date" [nzSortFn]="true">start date</th>
+      <th nzColumnKey="end date" [nzSortFn]="true">end date</th>
+      <th nzColumnKey="edit" [width]="100">
+        <button class="add-button" (click)="addNewEvent()">Add</button>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of upcomingEvents" class="table">
+      <td>
+        <div class="image-container" (click)="selectEvent(data)"></div>
+      </td>
+      <td><b>{{ data.name }}</b></td>
+      <td>{{ data.points }}</td>
+      <td>{{ data.location }}</td>
+      <td>{{ data.startDate | date }}</td>
+      <td>{{ data.endDate | date }}</td>
+      <td>
+        <button class="edit-button" (click)="editEvent(data)">
+          <span nz-icon nzType="edit" nzTheme="outline"></span>
+          Edit </button>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

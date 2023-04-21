@@ -57,4 +57,10 @@ export class AuthService {
       return this.userPayload.role;
     }
   }
+
+  getEmailFromToken(){
+    if(this.userPayload){
+      return this.userPayload.email;
+    }
+  }
 }

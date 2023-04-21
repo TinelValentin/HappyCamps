@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { NzFormModule } from 'ng-zorro-antd/form';
@@ -29,8 +27,8 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
-import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { InfoCardComponent } from './info-card/info-card.component';
+import { SharedModule } from './shared-module/shared-module.module';
 
 registerLocaleData(en);
 
@@ -46,7 +44,6 @@ const icons: IconDefinition[] =
     MainComponent,
     LoginComponent,
     HomeComponent,
-    NavigationBarComponent,
     InfoCardComponent,
   ],
   imports: [
@@ -65,8 +62,10 @@ const icons: IconDefinition[] =
     NzToolTipModule,
     NzCardModule,
     NzSelectModule,
-    NzDatePickerModule
+    NzDatePickerModule,
+    SharedModule
   ],
+
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,

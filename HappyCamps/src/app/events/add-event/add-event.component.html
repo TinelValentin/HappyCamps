@@ -1,0 +1,62 @@
+<div class="modal">
+    <form nz-form [nzLayout]="'vertical'" [formGroup]="addEventForm" (ngSubmit)="submitForm()">
+        <nz-form-item>
+          <nz-form-control>
+            <nz-input-group>
+              <label>Event Name</label>
+              <input formControlName="name" nz-input placeholder="Name" />
+              <label *ngIf="name?.errors?.['required'] && (name?.dirty || name?.touched)">Name Required</label>
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-control>
+              <nz-input-group>
+                <label>Points</label>
+                <input type="number" formControlName="points" nz-input placeholder="Points" />
+                <label *ngIf="points?.errors?.['required'] && (points?.dirty || points?.touched)"> Required</label>
+                <label *ngIf="points?.errors?.['minPoints']"> Minimum is 1</label>
+              </nz-input-group>
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-control>
+              <nz-input-group>
+                <label>Location</label>
+                <input formControlName="location" nz-input placeholder="Location" />
+                <label *ngIf="location?.errors?.['required'] && (location?.dirty || location?.touched)">Location Required</label>
+              </nz-input-group>
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-control>
+                <nz-input-group>
+                    <label>{{user_email}}</label>
+                </nz-input-group>
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-control>
+              <nz-input-group>
+                <label>Start Date</label>
+                <input type="date" formControlName="startDate" nz-input placeholder="Start-Date" />
+                <label *ngIf="startDate?.errors?.['required'] && (startDate?.dirty || startDate?.touched)">Start Date Required</label>
+              </nz-input-group>
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-control>
+              <nz-input-group>
+                <label>End Date</label>
+                <input type="date" formControlName="endDate" nz-input placeholder="End-Date" />
+                <label *ngIf="endDate?.errors?.['required'] && (endDate?.dirty || endDate?.touched)">End Date Required</label>
+              </nz-input-group>
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-control>
+              <button nz-button nzType="primary" class="confirm-button">Add</button>
+            </nz-form-control>
+        </nz-form-item>
+      </form>
+    </div>
