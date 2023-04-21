@@ -3,7 +3,13 @@
   [nzPageSize]="pageSize" [nzPageIndex]="pageIndex" (nzQueryParams)="onQueryParamsChange($event)">
   <thead>
     <tr>
-      <th nzColumnKey="image" [width]="230"></th>
+      <th nzColumnKey="image" [width]="280">
+        <div class="search-container">
+          <label for="search">Search Events</label>
+          <input type="text" id="search" class="search-bar" placeholder="Search..."
+            (ngModelChange)="search($event)" [(ngModel)]="searchText" />
+        </div>
+      </th>
       <th nzColumnKey="name" [nzSortFn]="true">Name</th>
       <th nzColumnKey="points" [nzSortFn]="true">points</th>
       <th nzColumnKey="location" [nzSortFn]="true">location</th>
@@ -26,7 +32,7 @@
       <td>{{ data.endDate | date }}</td>
       <td>
         <button class="edit-button" (click)="editEvent(data)">
-          <span nz-icon nzType="edit" nzTheme="outline" ></span>
+          <span nz-icon nzType="edit" nzTheme="outline"></span>
           Edit </button>
       </td>
     </tr>

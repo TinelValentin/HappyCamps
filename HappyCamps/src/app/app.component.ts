@@ -8,20 +8,4 @@ import { MenuItem } from './Models/menu-item.interface';
 })
 export class AppComponent {
   title = 'HappyCamps';
-
-  // menuItems: MenuItem[] =
-  //   [
-  //     {
-  //       name: "Events",
-  //       path: "/events"
-  //     },
-  //     {
-  //       name: "Achievements",
-  //       path: "/achievements"
-  //     },
-  //     {
-  //       name: "Profile",
-  //       path: "/profile"
-  //     }
-  //   ]
 }

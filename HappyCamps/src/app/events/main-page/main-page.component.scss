@@ -72,3 +72,25 @@
 .table{
     font-size: 16px;
 }
+
+.search-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+
+    .search-bar{
+        width: 240px;
+        height: 30px;
+        border-radius: 8px;
+        border: 1px solid rgb(189, 189, 189);
+        font-size: 17px;
+        text-align:justify;
+    }
+
+    label{
+        font-size: 17px;
+        font-weight: bolder;
+        font-family: 'Times New Roman', Times, serif;
+    }
+}
