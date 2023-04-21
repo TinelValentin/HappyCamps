@@ -1,7 +1,5 @@
-import { DatePipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
 import { Event } from 'src/app/Models/event';
 import { EventService } from 'src/app/services/events-service/event.service';
 
@@ -25,8 +23,8 @@ export class EditEventComponent {
     console.log(this.eventToEdit)
     this.editEventForm= this.fb.group({
       id:[this.eventToEdit.id,[Validators.required]],
-      startDate:[this.eventToEdit.startDate,[Validators.required]],
-      endDate:[this.eventToEdit.endDate,[Validators.required]],
+      startDate:[this.eventToEdit.startDate.toISOString().slice(0, 10),[Validators.required]],
+      endDate:[this.eventToEdit.endDate.toISOString().slice(0, 10),[Validators.required]],
       location:[this.eventToEdit.location,[Validators.required]],
       name:[this.eventToEdit.name,[Validators.required]],
       organizer:[this.eventToEdit.organizer.email,[Validators.required]],

@@ -1,0 +1,34 @@
+<div class="page-layout">
+    <div class="image-container"></div>
+    <div class="event-information-container">
+        <div class="information-group">
+            <h2>Description</h2>
+            <p>{{selectedEvent?.description}}</p>
+        </div>
+
+        <div class="information-group">
+            <h2>Points</h2>
+            <p>{{selectedEvent?.points}}</p>
+        </div>
+
+        <div class="information-group">
+            <h2>Organizer</h2>
+            <p>{{selectedEvent?.organizer?.firstName}} {{selectedEvent?.organizer?.lastName}}</p>
+        </div>
+
+        <div class="information-group">
+            <h2>Location</h2>
+            <p>{{selectedEvent?.location}}</p>
+        </div>
+
+        <div class="information-group">
+            <h2>Start Date</h2>
+            <p>{{selectedEvent?.startDate | date:'dd MMM yyyy h:mm' }}</p>
+        </div>
+
+        <div class="information-group">
+            <h2>End Date</h2>
+            <p>{{selectedEvent?.endDate | date:'dd MMM yyyy h:mm' }}</p>
+        </div>
+    </div>
+</div>

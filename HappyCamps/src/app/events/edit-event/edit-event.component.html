@@ -41,7 +41,7 @@
             <nz-form-control>
               <nz-input-group>
                 <label>Start Date</label>
-                <input [defaultValue]="startDate" type="date" formControlName="startDate" nz-input placeholder="Start-Date" />
+                <input [value]="startDate" type="date" formControlName="startDate" nz-input placeholder="Start-Date" />
                 <label *ngIf="startDate?.errors?.['required']"> Required</label>
               </nz-input-group>
             </nz-form-control>
@@ -55,9 +55,9 @@
               </nz-input-group>
             </nz-form-control>
         </nz-form-item>
-        <nz-form-item>
+        <nz-form-item id="confirm-container">
             <nz-form-control>
-              <button nz-button nzType="primary">Confirm edit</button>
+              <button nz-button nzType="primary" class="confirm-button">Confirm</button>
             </nz-form-control>
         </nz-form-item>
       </form>

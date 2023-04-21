@@ -5,10 +5,10 @@ import { NzTableQueryParams } from 'ng-zorro-antd/table';
 import { User } from 'src/app/Models/user';
 import { Roles } from 'src/app/Models/roles';
 import { MenuItem } from 'src/app/Models/menu-item.interface';
-import { NavigationExtras, Router } from '@angular/router';
 import { EditEventComponent } from '../edit-event/edit-event.component';
-import { NzModalService } from 'ng-zorro-antd/modal';
+import { NzModalService, NzModalRef } from 'ng-zorro-antd/modal';
 import { AddEventComponent } from '../add-event/add-event.component';
+import { SelectEventComponent } from '../select-event/select-event.component';
 
 @Component({
   selector: 'app-main-page',
@@ -84,21 +84,27 @@ export class MainPageComponent {
     })
   }
 
-  selectEvent() {
-
+  selectEvent(event: Event) {
+    this.modal.create({
+      nzTitle: event.name,
+      nzContent: SelectEventComponent,
+      nzFooter: null,
+      nzComponentParams: { selectedEvent: event },
+      nzWidth:1000
+    })
   }
 
   addNewEvent() {
     this.modal.create({
-      nzTitle:"Add-event",
-      nzContent:AddEventComponent,
-      nzFooter:null
+      nzTitle: "Create a New Event",
+      nzContent: AddEventComponent,
+      nzFooter: null
     })
   }
 
   editEvent(event: Event) {
     this.modal.create({
-      nzTitle: "edit-event",
+      nzTitle: "Edit",
       nzContent: EditEventComponent,
       nzFooter: null,
       nzComponentParams: {

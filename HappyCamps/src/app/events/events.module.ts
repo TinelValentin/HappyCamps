@@ -12,13 +12,15 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { AddEventComponent } from './add-event/add-event.component';
+import { SelectEventComponent } from './select-event/select-event.component';
 
 
 @NgModule({
   declarations: [
     MainPageComponent,
     EditEventComponent,
-    AddEventComponent
+    AddEventComponent,
+    SelectEventComponent
   ],
   imports: [
     CommonModule,
