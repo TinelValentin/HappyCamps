@@ -1,0 +1,41 @@
+<app-navigation-bar [menuItems]="menuItems"></app-navigation-bar>
+<nz-table nzShowSizeChanger [nzData]="listOfUsers" [nzFrontPagination]="false" [nzTotal]="total"
+  [nzPageSize]="pageSize" [nzPageIndex]="pageIndex" (nzQueryParams)="onQueryParamsChange($event)">
+  <thead>
+    <tr>
+      <th nzColumnKey="image" [width]="280">
+        <div class="search-container">
+          <label for="search">Search User</label>
+          <input type="text" id="search" class="search-bar" placeholder="Search..."
+            (ngModelChange)="search($event)" [(ngModel)]="searchText" />
+        </div>
+      </th>
+      <th nzColumnKey="firstName" [nzSortFn]="true">First Name</th>
+      <th nzColumnKey="lastName" [nzSortFn]="true">Last Name</th>
+      <th nzColumnKey="email" [nzSortFn]="true">Email</th>
+      <th nzColumnKey="phoneNumber" [nzSortFn]="true">Phone Number</th>
+      <th nzColumnKey="isAspirant" [nzSortFn]="true">Is Aspirant</th>
+      <th nzColumnKey="accepted" [nzSortFn]="true">Accepted</th>
+      <th nzColumnKey="isActive" [nzSortFn]="true">Active</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of listOfUsers" class="table">
+      <td>
+        <div class="image-container" (click)="selectUser(data)"></div>
+      </td>
+      <td><b>{{ data.firstName }}</b></td>
+      <td>{{ data.lastName }}</td>
+      <td>{{ data.email }}</td>
+      <td>{{ data.phoneNumber }}</td>
+      <td>{{ data.isAspirant }}</td>
+      <td>{{ data.accepted }}</td>
+      <td>{{ data.isActive }}</td>
+      <td>
+        <button  *ngIf="is_admin" class="edit-button" (click)="editUser(data)">
+          <span nz-icon nzType="edit" nzTheme="outline"></span>
+          Edit </button>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

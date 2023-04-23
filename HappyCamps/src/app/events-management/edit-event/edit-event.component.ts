@@ -23,8 +23,8 @@ export class EditEventComponent {
     console.log(this.eventToEdit)
     this.editEventForm= this.fb.group({
       id:[this.eventToEdit.id,[Validators.required]],
-      startDate:[this.eventToEdit.startDate.toISOString().slice(0, 10),[Validators.required]],
-      endDate:[this.eventToEdit.endDate.toISOString().slice(0, 10),[Validators.required]],
+      startDate:[this.eventToEdit.startDate,[Validators.required]],
+      endDate:[this.eventToEdit.endDate,[Validators.required]],
       location:[this.eventToEdit.location,[Validators.required]],
       name:[this.eventToEdit.name,[Validators.required]],
       organizer:[this.eventToEdit.organizer.email,[Validators.required]],

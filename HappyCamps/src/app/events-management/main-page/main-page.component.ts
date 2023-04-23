@@ -9,6 +9,9 @@ import { EditEventComponent } from '../edit-event/edit-event.component';
 import { NzModalService, NzModalRef } from 'ng-zorro-antd/modal';
 import { AddEventComponent } from '../add-event/add-event.component';
 import { SelectEventComponent } from '../select-event/select-event.component';
+import { AuthService } from 'src/app/services/auth.service';
+import { RouterLink } from '@angular/router';
+import { NavigationService } from 'src/app/services/shared-module/navigation.service';
 
 @Component({
   selector: 'app-main-page',
@@ -21,28 +24,20 @@ export class MainPageComponent {
   loading = true;
   pageSize = 10;
   pageIndex = 1;
-
+  searchText:string;
   public upcomingEvents: Event[] = [];
+  is_organizer_or_admin:boolean = false;
+  menuItems: MenuItem[] = []
 
-  menuItems: MenuItem[] =
-    [
-      {
-        name: "Home",
-        path: "/home"
-      },
-      {
-        name: "Achievements",
-        path: "/achievements"
-      },
-      {
-        name: "Profile",
-        path: "/profile"
-      }
-    ]
-
-  constructor(private eventsService: EventService, private modal: NzModalService) { }
+  constructor(private eventsService: EventService, private modal: NzModalService,private auth:AuthService,private navigationService:NavigationService) { }
 
   ngOnInit() {
+    this.menuItems = this.navigationService.getMenuItems()
+    
+    if(this.auth.getRoleFromToken()==Roles[2] || this.auth.getRoleFromToken() == Roles[1]){
+      this.is_organizer_or_admin=true
+    }
+
     this.fetchDataFromServer()
   }
 
@@ -111,5 +106,8 @@ export class MainPageComponent {
         eventToEdit: event
       }
     })
+  }
+  search(searchText:String){
+
   }
 }
