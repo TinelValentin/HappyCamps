@@ -11,33 +11,55 @@ import { LoginUser } from '../Models/login-user';
 export class AuthService {
   login_url:string ='https://localhost:7027/api/User/login'
   
-  private userPayload:any;
-
+  // private userPayload:any;
+  token:string;
   constructor(private http:HttpClient, private router:Router,private cookieService:CookieService) {
-    this.userPayload = this.decodedToken();
+    // this.userPayload = this.decodedToken();
   }
 
   login(loginObj:LoginUser){
     return this.http.post<any>(this.login_url,loginObj);
   }
 
-  storeToken(tokenValue:string){
+  storeTokenInMemory(tokenValue:string){
+    debugger
+    this.token=tokenValue
+  }
+
+  storeTokenAndRememberMe(tokenValue:string,remember_me:string){
     this.cookieService.set("jwtToken",tokenValue)
+    this.cookieService.set("remember",remember_me)
   }
 
   getToken(){
+    debugger
     let jwtToken = this.cookieService.get('jwtToken');
+
+    if(jwtToken==null||jwtToken==undefined || jwtToken=="")
+    {
+      return this.token
+    }
+
     return jwtToken;
   }
 
   isLoggedIn():boolean{
-    let jwtToken = this.cookieService.get('jwtToken');
+    let jwtToken = this.getToken();
     return !!jwtToken;
   }
 
   signOut(){
     this.cookieService.delete('jwtToken');
+    this.removeRememberMe();
     this.router.navigate(['/login'])
+  }
+
+  removeRememberMe(){
+    this.cookieService.delete('remember');
+  }
+
+  getRememberMe(){
+    return this.cookieService.get("remember")
   }
   
   decodedToken(){
@@ -47,20 +69,23 @@ export class AuthService {
   }
   
   getFullNameFromToken(){
-    if(this.userPayload){
-      return this.userPayload.name;
+   let userPayload = this.decodedToken()
+    if(userPayload){
+      return userPayload.name;
     }
   }
 
   getRoleFromToken(){
-    if(this.userPayload){
-      return this.userPayload.role;
+    let userPayload = this.decodedToken()
+    if(userPayload){
+      return userPayload.role;
     }
   }
 
   getEmailFromToken(){
-    if(this.userPayload){
-      return this.userPayload.email;
+    let userPayload = this.decodedToken()
+    if(userPayload){
+      return userPayload.email;
     }
   }
 }

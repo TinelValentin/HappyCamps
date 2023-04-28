@@ -85,7 +85,7 @@ export class MainPageComponent {
       nzContent: SelectEventComponent,
       nzFooter: null,
       nzComponentParams: { selectedEvent: event },
-      nzWidth:1000
+      nzWidth:100,
     })
   }
 
