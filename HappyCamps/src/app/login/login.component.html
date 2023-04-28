@@ -24,8 +24,8 @@
         </nz-form-control>
       </nz-form-item>
       <div class="remember-me">
-        <input type="checkbox" id="remember-me" [checked]="checked">
-        <label for="remember-me">Remember me</label>
+        <input type="checkbox" nz-input formControlName="remember" [checked]="checked">
+        <label for="remember">Remember me</label>
       </div>
       <button nz-button class="login-form-button" [nzType]="'primary'">Log in</button>
       Or

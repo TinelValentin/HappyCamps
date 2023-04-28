@@ -33,7 +33,6 @@ export class EditEventComponent {
   }
 
   submitForm(){
-    debugger
     if(this.editEventForm.valid){
       console.log(this.editEventForm.value)
       this.eventsService.edit_event(this.editEventForm.value).subscribe({

@@ -11,10 +11,8 @@ import { LoginUser } from '../Models/login-user';
 export class AuthService {
   login_url:string ='https://localhost:7027/api/User/login'
   
-  // private userPayload:any;
   token:string;
   constructor(private http:HttpClient, private router:Router,private cookieService:CookieService) {
-    // this.userPayload = this.decodedToken();
   }
 
   login(loginObj:LoginUser){
@@ -22,7 +20,7 @@ export class AuthService {
   }
 
   storeTokenInMemory(tokenValue:string){
-    debugger
+    ""
     this.token=tokenValue
   }
 
@@ -32,7 +30,7 @@ export class AuthService {
   }
 
   getToken(){
-    debugger
+    ""
     let jwtToken = this.cookieService.get('jwtToken');
 
     if(jwtToken==null||jwtToken==undefined || jwtToken=="")
@@ -50,6 +48,7 @@ export class AuthService {
 
   signOut(){
     this.cookieService.delete('jwtToken');
+    this.token=""
     this.removeRememberMe();
     this.router.navigate(['/login'])
   }

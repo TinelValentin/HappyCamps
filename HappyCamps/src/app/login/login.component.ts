@@ -20,7 +20,6 @@ export class LoginComponent {
       this.auth.login(this.validateForm.value).subscribe({
         next:(res)=>{
           this.remember_me = this.validateForm.value["remember"]
-          debugger
           if(this.validateForm.value["remember"]==true){
             this.auth.storeTokenAndRememberMe(res.token,this.remember_me)
           }

@@ -21,7 +21,7 @@ export class AddEventComponent {
   private initializeForm(){
     this.user_email = this.auth.getEmailFromToken()
     this.addEventForm= this.fb.group({
-      startDate:["",[Validators.required]],
+      startDate:['',[Validators.required]],
       endDate:['',[Validators.required]],
       location:['',[Validators.required]],
       name:['',[Validators.required]],
@@ -31,7 +31,7 @@ export class AddEventComponent {
   }
 
   submitForm(){
-    debugger
+
     if(this.addEventForm.valid){
       console.log(this.addEventForm.value)
       this.eventService.add_event(this.addEventForm.value).subscribe({

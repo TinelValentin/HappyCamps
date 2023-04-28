@@ -51,7 +51,6 @@ export class HomeComponent {
   }
 
   OpenUpCommingEventsPage() {
-    debugger;
     this.router.navigate(['events'])
   }
 }
