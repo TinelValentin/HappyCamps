@@ -9,7 +9,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 
 const routes: Routes = [
   {path:'',component:MainPageComponent,canActivate:[AuthGuard]},
-  {path:'edit-event/:id',component:EditEventComponent,canActivate:[AuthGuard,OrganizerGuard]},
+  {path:'edit-event/:id',component:EditEventComponent,canActivate:[AuthGuard,OrganizerGuard,AdminGuard],data:[]},
   {path:'add-event',component:AddEventComponent,canActivate:[AuthGuard,OrganizerGuard]}
 ];
 

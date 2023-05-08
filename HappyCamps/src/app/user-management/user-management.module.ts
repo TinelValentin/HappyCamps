@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { UserManagementRoutingModule } from './user-management-routing.module';
 import { UsersComponent } from './users/users.component';
 import { NzTableModule } from 'ng-zorro-antd/table';

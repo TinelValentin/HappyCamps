@@ -16,7 +16,7 @@
       <th nzColumnKey="start date" [nzSortFn]="true">start date</th>
       <th nzColumnKey="end date" [nzSortFn]="true">end date</th>
       <th nzColumnKey="edit" [width]="100">
-        <button class="add-button" *ngIf="is_organizer_or_admin" (click)="addNewEvent()">Add</button>
+        <button class="add-button" *ngIf="canDisplay" (click)="addNewEvent()">Add</button>
       </th>
     </tr>
   </thead>
@@ -31,7 +31,7 @@
       <td>{{ data.startDate | date }}</td>
       <td>{{ data.endDate | date }}</td>
       <td>
-        <button  *ngIf="is_organizer_or_admin" class="edit-button" (click)="editEvent(data)">
+        <button *ngIf="canDisplay" class="edit-button" (click)="editEvent(data)">
           <span nz-icon nzType="edit" nzTheme="outline"></span>
           Edit </button>
       </td>

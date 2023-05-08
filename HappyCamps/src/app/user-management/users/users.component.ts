@@ -3,7 +3,9 @@ import { NzModalService } from 'ng-zorro-antd/modal';
 import { NzTableSortOrder, NzTableSortFn, NzTableFilterList, NzTableFilterFn, NzTableQueryParams } from 'ng-zorro-antd/table';
 import { SelectEventComponent } from 'src/app/events-management/select-event/select-event.component';
 import { MenuItem } from 'src/app/Models/menu-item.interface';
+import { Roles } from 'src/app/Models/roles';
 import { User } from 'src/app/Models/user';
+import { AuthService } from 'src/app/services/auth.service';
 import { NavigationService } from 'src/app/services/shared-module/navigation.service';
 import { UserService } from 'src/app/services/user.service';
 import { SelectUserComponent } from '../select-user/select-user.component';
@@ -31,12 +33,11 @@ export class UsersComponent {
   pageSize = 10;
   pageIndex = 1;
   searchText:string;
-
-  is_admin:boolean
+  isAdmin=false
 
   menuItems: MenuItem[] = []
 
-  constructor(private userService: UserService, private navigationService: NavigationService,private modal: NzModalService) { }
+  constructor(private auth:AuthService,private userService: UserService, private navigationService: NavigationService,private modal: NzModalService) { }
 
   ngOnInit() {
     this.menuItems = this.navigationService.getMenuItems()
@@ -44,11 +45,10 @@ export class UsersComponent {
   }
 
   private fetchDataFromServer() {
+    this.isAdmin = this.auth.getRoleFromToken() == Roles.ADMIN ? true : false
     this.userService.getUsers().subscribe({
       next: (res) => {
         this.listOfUsers = res
-        console.log(this.listOfUsers)
-       
       }
     })
   }
@@ -65,7 +65,9 @@ export class UsersComponent {
 
   onQueryParamsChange(params: NzTableQueryParams): void {}
 
-  search(searchText:String){}
+  search(searchText:String){
+
+  }
 
   editUser(user:User){
     

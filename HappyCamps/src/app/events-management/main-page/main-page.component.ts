@@ -10,7 +10,6 @@ import { NzModalService, NzModalRef } from 'ng-zorro-antd/modal';
 import { AddEventComponent } from '../add-event/add-event.component';
 import { SelectEventComponent } from '../select-event/select-event.component';
 import { AuthService } from 'src/app/services/auth.service';
-import { RouterLink } from '@angular/router';
 import { NavigationService } from 'src/app/services/shared-module/navigation.service';
 
 @Component({
@@ -19,23 +18,22 @@ import { NavigationService } from 'src/app/services/shared-module/navigation.ser
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent {
-
   total = 1;
   loading = true;
   pageSize = 10;
   pageIndex = 1;
   searchText:string;
-  public upcomingEvents: Event[] = [];
-  is_organizer_or_admin:boolean = false;
+  canDisplay = false;
   menuItems: MenuItem[] = []
+  public upcomingEvents: Event[] = [];
 
   constructor(private eventsService: EventService, private modal: NzModalService,private auth:AuthService,private navigationService:NavigationService) { }
 
   ngOnInit() {
     this.menuItems = this.navigationService.getMenuItems()
-    
-    if(this.auth.getRoleFromToken()==Roles[2] || this.auth.getRoleFromToken() == Roles[1]){
-      this.is_organizer_or_admin=true
+
+    if(this.auth.getRoleFromToken() == Roles.ORGANIZER || this.auth.getRoleFromToken() == Roles.ADMIN){
+      this.canDisplay=true
     }
 
     this.fetchDataFromServer()
@@ -93,7 +91,7 @@ export class MainPageComponent {
     this.modal.create({
       nzTitle: "Create a New Event",
       nzContent: AddEventComponent,
-      nzFooter: null
+      nzFooter: null,
     })
   }
 

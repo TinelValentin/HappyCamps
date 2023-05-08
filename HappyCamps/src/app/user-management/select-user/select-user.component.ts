@@ -8,23 +8,6 @@ import { User } from 'src/app/Models/user';
   styleUrls: ['./select-user.component.scss']
 })
 export class SelectUserComponent {
-  @Input() selectedUser?: User;
-
-  role:string
-
-  ngOnInit(){
-
-    if(this.selectedUser?.roleType==0)
-    {
-      this.role='voluntar'
-    }
-    if(this.selectedUser?.roleType==1)
-    {
-      this.role='admin'
-    }
-    if(this.selectedUser?.roleType==2)
-    {
-      this.role='organizer'
-    }
-  }
+  @Input() selectedUser?: User
+  
 }

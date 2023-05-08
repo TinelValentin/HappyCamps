@@ -11,7 +11,7 @@ export class AdminGuard implements CanActivate {
   constructor(private auth:AuthService,private router:Router){}
   
   canActivate():boolean{
-    if(this.auth.getRoleFromToken() == Roles[1])
+    if(this.auth.getRoleFromToken() == Roles.ADMIN)
     {
       return true;
     }

@@ -1,4 +1,4 @@
-import { Roles } from "./roles";
+import { AuthGroup } from "./authGroup";
 
 export interface User {
     id: number;
@@ -10,9 +10,10 @@ export interface User {
     phoneNumber: string;
     city: string;
     instagram: string;
-    roleType: Roles;
     points: number;
     accepted: boolean;
     isActive: boolean;
     isAspirant: boolean;
+    age:number;
+    authGroup:AuthGroup;
 }

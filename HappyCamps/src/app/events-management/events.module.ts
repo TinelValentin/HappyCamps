@@ -13,7 +13,7 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { AddEventComponent } from './add-event/add-event.component';
 import { SelectEventComponent } from './select-event/select-event.component';
-
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,8 @@ import { SelectEventComponent } from './select-event/select-event.component';
     ReactiveFormsModule,
     NzInputModule,
     NzFormModule,
-    NzModalModule
+    NzModalModule,
+    NzDatePickerModule
   ]
 })
 export class EventsModule { }

@@ -31,9 +31,7 @@
         <nz-form-item>
             <nz-form-control>
                 <nz-input-group>
-                    <label>Organizer</label>
-                    <input formControlName="organizer" nz-input placeholder="Organizer" />
-                    <label *ngIf="organizer?.errors?.['required']"> email Required</label>
+                  <label>{{user_email}}</label>
                 </nz-input-group>
             </nz-form-control>
         </nz-form-item>
@@ -41,7 +39,7 @@
             <nz-form-control>
               <nz-input-group>
                 <label>Start Date</label>
-                <input [value]="startDate" type="date" formControlName="startDate" nz-input placeholder="Start-Date" />
+                <nz-date-picker formControlName="startDate"  placeholder="Start Date" />
                 <label *ngIf="startDate?.errors?.['required']"> Required</label>
               </nz-input-group>
             </nz-form-control>
@@ -50,7 +48,7 @@
             <nz-form-control>
               <nz-input-group>
                 <label>End Date</label>
-                <input type="date" formControlName="endDate" nz-input placeholder="End-Date" />
+                <nz-date-picker formControlName="endDate" placeholder="End-Date" />
                 <label *ngIf="endDate?.errors?.['required']"> Required</label>
               </nz-input-group>
             </nz-form-control>

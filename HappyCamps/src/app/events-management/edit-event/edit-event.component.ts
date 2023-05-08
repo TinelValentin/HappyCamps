@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Event } from 'src/app/Models/event';
+import { AuthService } from 'src/app/services/auth.service';
 import { EventService } from 'src/app/services/events-service/event.service';
 
 @Component({
@@ -12,10 +13,12 @@ export class EditEventComponent {
   @Input() eventToEdit: Event;
 
   editEventForm!: FormGroup;
+  user_email:string
 
-  constructor(private fb:FormBuilder,private eventsService:EventService){}
+  constructor(private auth:AuthService,private fb:FormBuilder,private eventsService:EventService){}
 
   ngOnInit(){
+    this.user_email = this.auth.getEmailFromToken()
     this.initializeForm()
   }
 

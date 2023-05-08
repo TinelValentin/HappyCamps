@@ -11,20 +11,21 @@ import { UserStoreService } from '../services/user-store.service';
 })
 export class LoginComponent {
   validateForm!: UntypedFormGroup;
-  checked:boolean=true
-  remember_me:string;
+  checked=true
+
   constructor(private fb: UntypedFormBuilder,private auth:AuthService,private router:Router,private userStore:UserStoreService) {}
 
   submitForm(): void {
     if (this.validateForm.valid) {
       this.auth.login(this.validateForm.value).subscribe({
         next:(res)=>{
-          this.remember_me = this.validateForm.value["remember"]
-          if(this.validateForm.value["remember"]==true){
-            this.auth.storeTokenAndRememberMe(res.token,this.remember_me)
+          if(this.validateForm.value["remember"]==true)
+          {
+            this.auth.storeToken(res.token)
           }
-          else{
-            this.auth.storeTokenInMemory(res.token)
+          else
+          {
+            this.auth.storeTokenInSession(res.token)
           }
 
           alert(res.message)

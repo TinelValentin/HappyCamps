@@ -11,32 +11,23 @@ import { LoginUser } from '../Models/login-user';
 export class AuthService {
   login_url:string ='https://localhost:7027/api/User/login'
   
-  token:string;
-  constructor(private http:HttpClient, private router:Router,private cookieService:CookieService) {
-  }
+  constructor(private http:HttpClient, private router:Router,private cookieService:CookieService) { }
 
   login(loginObj:LoginUser){
     return this.http.post<any>(this.login_url,loginObj);
   }
-
-  storeTokenInMemory(tokenValue:string){
-    ""
-    this.token=tokenValue
+  
+  storeTokenInSession(tokenValue:string){
+    sessionStorage.setItem('jwtToken', tokenValue);
   }
 
-  storeTokenAndRememberMe(tokenValue:string,remember_me:string){
+  storeToken(tokenValue:string){
     this.cookieService.set("jwtToken",tokenValue)
-    this.cookieService.set("remember",remember_me)
   }
 
   getToken(){
-    ""
-    let jwtToken = this.cookieService.get('jwtToken');
-
-    if(jwtToken==null||jwtToken==undefined || jwtToken=="")
-    {
-      return this.token
-    }
+    
+    let jwtToken = this.cookieService.get('jwtToken') || sessionStorage.getItem("jwtToken");
 
     return jwtToken;
   }
@@ -48,14 +39,10 @@ export class AuthService {
 
   signOut(){
     this.cookieService.delete('jwtToken');
-    this.token=""
-    this.removeRememberMe();
+    sessionStorage.removeItem("jwtToken")
     this.router.navigate(['/login'])
   }
 
-  removeRememberMe(){
-    this.cookieService.delete('remember');
-  }
 
   getRememberMe(){
     return this.cookieService.get("remember")
@@ -75,6 +62,7 @@ export class AuthService {
   }
 
   getRoleFromToken(){
+    debugger
     let userPayload = this.decodedToken()
     if(userPayload){
       return userPayload.role;

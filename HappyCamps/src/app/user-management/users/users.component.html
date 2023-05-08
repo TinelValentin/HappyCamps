@@ -32,7 +32,7 @@
       <td>{{ data.accepted }}</td>
       <td>{{ data.isActive }}</td>
       <td>
-        <button  *ngIf="is_admin" class="edit-button" (click)="editUser(data)">
+        <button  *ngIf="isAdmin" class="edit-button" (click)="editUser(data)">
           <span nz-icon nzType="edit" nzTheme="outline"></span>
           Edit </button>
       </td>

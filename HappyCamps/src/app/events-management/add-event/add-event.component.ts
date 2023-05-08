@@ -21,12 +21,12 @@ export class AddEventComponent {
   private initializeForm(){
     this.user_email = this.auth.getEmailFromToken()
     this.addEventForm= this.fb.group({
-      startDate:['',[Validators.required]],
-      endDate:['',[Validators.required]],
-      location:['',[Validators.required]],
-      name:['',[Validators.required]],
+      startDate:[null,[Validators.required]],
+      endDate:[null,[Validators.required]],
+      location:[null,[Validators.required]],
+      name:[null,[Validators.required]],
       organizer:[this.auth.getEmailFromToken(),[Validators.required]],
-      points:['',[Validators.required,]]
+      points:[null,[Validators.required,]]
     })
   }
 
