@@ -9,6 +9,8 @@ import { EditEventComponent } from '../edit-event/edit-event.component';
 import { NzModalService, NzModalRef } from 'ng-zorro-antd/modal';
 import { AddEventComponent } from '../add-event/add-event.component';
 import { SelectEventComponent } from '../select-event/select-event.component';
+import { AuthService } from 'src/app/services/auth.service';
+import { NavigationService } from 'src/app/services/shared-module/navigation.service';
 
 @Component({
   selector: 'app-main-page',
@@ -16,33 +18,24 @@ import { SelectEventComponent } from '../select-event/select-event.component';
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent {
-
   total = 1;
   loading = true;
   pageSize = 10;
   pageIndex = 1;
-
+  searchText:string;
+  canDisplay = false;
+  menuItems: MenuItem[] = []
   public upcomingEvents: Event[] = [];
 
-  menuItems: MenuItem[] =
-    [
-      {
-        name: "Home",
-        path: "/home"
-      },
-      {
-        name: "Achievements",
-        path: "/achievements"
-      },
-      {
-        name: "Profile",
-        path: "/profile"
-      }
-    ]
-
-  constructor(private eventsService: EventService, private modal: NzModalService) { }
+  constructor(private eventsService: EventService, private modal: NzModalService,private auth:AuthService,private navigationService:NavigationService) { }
 
   ngOnInit() {
+    this.menuItems = this.navigationService.getMenuItems()
+
+    if(this.auth.getRoleFromToken() == Roles.ORGANIZER || this.auth.getRoleFromToken() == Roles.ADMIN){
+      this.canDisplay=true
+    }
+
     this.fetchDataFromServer()
   }
 
@@ -90,7 +83,7 @@ export class MainPageComponent {
       nzContent: SelectEventComponent,
       nzFooter: null,
       nzComponentParams: { selectedEvent: event },
-      nzWidth:1000
+      nzWidth:100,
     })
   }
 
@@ -98,7 +91,7 @@ export class MainPageComponent {
     this.modal.create({
       nzTitle: "Create a New Event",
       nzContent: AddEventComponent,
-      nzFooter: null
+      nzFooter: null,
     })
   }
 
@@ -111,5 +104,8 @@ export class MainPageComponent {
         eventToEdit: event
       }
     })
+  }
+  search(searchText:String){
+
   }
 }

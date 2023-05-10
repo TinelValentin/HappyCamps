@@ -6,6 +6,7 @@ import { AuthService } from '../services/auth.service';
 import { EventService } from '../services/events-service/event.service';
 import { UserStoreService } from '../services/user-store.service';
 import { MenuItem } from '../Models/menu-item.interface';
+import { NavigationService } from '../services/shared-module/navigation.service';
 
 @Component({
   selector: 'app-home',
@@ -19,25 +20,13 @@ export class HomeComponent {
 
   public upcomingEvents: Event[] = []
     
-  constructor(private auth:AuthService, private userStore:UserStoreService, private eventService:EventService,private router:Router){}
+  constructor(private auth:AuthService, private userStore:UserStoreService, private eventService:EventService,private router:Router,private navigationService:NavigationService){}
 
-  menuItems: MenuItem[] =
-    [
-      {
-        name: "Events",
-        path: "/events"
-      },
-      {
-        name: "Achievements",
-        path: "/achievements"
-      },
-      {
-        name: "Profile",
-        path: "/profile"
-      }
-    ]
-
+  menuItems: MenuItem[] = []
+  
   ngOnInit() {
+    this.menuItems = this.navigationService.getMenuItems()
+    
     this.userStore.getFullNameFromStore().subscribe(
       val=>{
         let fullNameFromToken = this.auth.getFullNameFromToken()
@@ -62,7 +51,6 @@ export class HomeComponent {
   }
 
   OpenUpCommingEventsPage() {
-    debugger;
     this.router.navigate(['events'])
   }
 }

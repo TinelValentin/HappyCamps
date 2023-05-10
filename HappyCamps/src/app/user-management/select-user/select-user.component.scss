@@ -1,0 +1,30 @@
+.page-layout{
+    display: flex;
+}
+
+.image-container {
+    height: 500px;
+    width: 500px;
+    border-radius: 15px;
+    background: url("/assets/profile.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.event-information-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 800px;
+    margin-left: 20px;
+}
+
+.information-group{
+    display: flex;
+    flex-direction: column;
+
+}

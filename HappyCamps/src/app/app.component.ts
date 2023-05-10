@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { MenuItem } from './Models/menu-item.interface';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,6 @@ import { MenuItem } from './Models/menu-item.interface';
 })
 export class AppComponent {
   title = 'HappyCamps';
+
+  constructor(private auth:AuthService){}
 }

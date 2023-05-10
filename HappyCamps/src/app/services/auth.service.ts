@@ -11,14 +11,14 @@ import { LoginUser } from '../Models/login-user';
 export class AuthService {
   login_url:string ='https://localhost:7027/api/User/login'
   
-  private userPayload:any;
-
-  constructor(private http:HttpClient, private router:Router,private cookieService:CookieService) {
-    this.userPayload = this.decodedToken();
-  }
+  constructor(private http:HttpClient, private router:Router,private cookieService:CookieService) { }
 
   login(loginObj:LoginUser){
     return this.http.post<any>(this.login_url,loginObj);
+  }
+  
+  storeTokenInSession(tokenValue:string){
+    sessionStorage.setItem('jwtToken', tokenValue);
   }
 
   storeToken(tokenValue:string){
@@ -26,18 +26,26 @@ export class AuthService {
   }
 
   getToken(){
-    let jwtToken = this.cookieService.get('jwtToken');
+    
+    let jwtToken = this.cookieService.get('jwtToken') || sessionStorage.getItem("jwtToken");
+
     return jwtToken;
   }
 
   isLoggedIn():boolean{
-    let jwtToken = this.cookieService.get('jwtToken');
+    let jwtToken = this.getToken();
     return !!jwtToken;
   }
 
   signOut(){
     this.cookieService.delete('jwtToken');
+    sessionStorage.removeItem("jwtToken")
     this.router.navigate(['/login'])
+  }
+
+
+  getRememberMe(){
+    return this.cookieService.get("remember")
   }
   
   decodedToken(){
@@ -47,20 +55,24 @@ export class AuthService {
   }
   
   getFullNameFromToken(){
-    if(this.userPayload){
-      return this.userPayload.name;
+   let userPayload = this.decodedToken()
+    if(userPayload){
+      return userPayload.name;
     }
   }
 
   getRoleFromToken(){
-    if(this.userPayload){
-      return this.userPayload.role;
+    debugger
+    let userPayload = this.decodedToken()
+    if(userPayload){
+      return userPayload.role;
     }
   }
 
   getEmailFromToken(){
-    if(this.userPayload){
-      return this.userPayload.email;
+    let userPayload = this.decodedToken()
+    if(userPayload){
+      return userPayload.email;
     }
   }
 }

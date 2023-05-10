@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Event } from 'src/app/Models/event';
+import { AuthService } from 'src/app/services/auth.service';
 import { EventService } from 'src/app/services/events-service/event.service';
 
 @Component({
@@ -12,10 +13,12 @@ export class EditEventComponent {
   @Input() eventToEdit: Event;
 
   editEventForm!: FormGroup;
+  user_email:string
 
-  constructor(private fb:FormBuilder,private eventsService:EventService){}
+  constructor(private auth:AuthService,private fb:FormBuilder,private eventsService:EventService){}
 
   ngOnInit(){
+    this.user_email = this.auth.getEmailFromToken()
     this.initializeForm()
   }
 
@@ -23,8 +26,8 @@ export class EditEventComponent {
     console.log(this.eventToEdit)
     this.editEventForm= this.fb.group({
       id:[this.eventToEdit.id,[Validators.required]],
-      startDate:[this.eventToEdit.startDate.toISOString().slice(0, 10),[Validators.required]],
-      endDate:[this.eventToEdit.endDate.toISOString().slice(0, 10),[Validators.required]],
+      startDate:[this.eventToEdit.startDate,[Validators.required]],
+      endDate:[this.eventToEdit.endDate,[Validators.required]],
       location:[this.eventToEdit.location,[Validators.required]],
       name:[this.eventToEdit.name,[Validators.required]],
       organizer:[this.eventToEdit.organizer.email,[Validators.required]],
@@ -33,7 +36,6 @@ export class EditEventComponent {
   }
 
   submitForm(){
-    debugger
     if(this.editEventForm.valid){
       console.log(this.editEventForm.value)
       this.eventsService.edit_event(this.editEventForm.value).subscribe({

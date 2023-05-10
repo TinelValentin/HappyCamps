@@ -1,0 +1,34 @@
+<div class="page-layout">
+    <div class="image-container"></div>
+    <div class="event-information-container">
+        <div class="information-group">
+            <h2>Birth Date</h2>
+            <p>{{selectedUser?.birthDate | date:'dd MMM yyyy h:mm' }}</p>
+        </div>
+
+        <div class="information-group">
+            <h2>City</h2>
+            <p>{{selectedUser?.city}}</p>
+        </div>
+
+        <div class="information-group">
+            <h2>Instagram</h2>
+            <p>{{selectedUser?.instagram}}</p>
+        </div>
+
+        <div class="information-group">
+            <h2>Role</h2>
+            <p>{{selectedUser?.authGroup?.role}}</p>
+        </div>
+
+        <div class="information-group">
+            <h2>Points</h2>
+            <p>{{selectedUser?.points}}</p>
+        </div>
+
+        <div class="information-group">
+            <h2>Age</h2>
+            <p>{{selectedUser?.age}}</p>
+        </div>
+    </div>
+</div>
