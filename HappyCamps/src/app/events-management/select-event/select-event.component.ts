@@ -9,4 +9,9 @@ import { Event } from '../../Models/event';
 export class SelectEventComponent {
 
   @Input() selectedEvent?: Event;
+
+  participate()
+  {
+    //TODO: Implement participation for an event
+  }
 }

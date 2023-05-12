@@ -38,7 +38,7 @@
         <nz-form-item>
             <nz-form-control>
               <nz-input-group>
-                <label>Start Date</label>
+                <label>Start Date</label><br>
                 <nz-date-picker formControlName="startDate"  placeholder="Start Date" />
                 <label *ngIf="startDate?.errors?.['required']"> Required</label>
               </nz-input-group>
@@ -47,7 +47,7 @@
         <nz-form-item>
             <nz-form-control>
               <nz-input-group>
-                <label>End Date</label>
+                <label>End Date</label><br>
                 <nz-date-picker formControlName="endDate" placeholder="End-Date" />
                 <label *ngIf="endDate?.errors?.['required']"> Required</label>
               </nz-input-group>

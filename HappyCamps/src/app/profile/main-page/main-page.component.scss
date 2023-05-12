@@ -1,0 +1,102 @@
+.main-page-container{
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    padding: 40px;
+    background-color: rgba(86, 116, 86, 0.231);
+    gap: 100px;
+}
+
+.profile-container{
+    height: 80vh;
+    background-color: rgba(255, 255, 255, 0.573);
+    width: 40%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    
+    hr{
+        margin-top: 20px;
+        margin-left: -14px;
+        width: 68%;
+        height: 4px;
+        background-color: rgba(158, 206, 158, 0.231);
+        border: none;
+    }
+}
+
+.profile-title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+}
+
+.information-group{
+    display: flex;
+    flex-direction: column;
+}
+
+#changePassword{
+    margin-top: 20px;
+    border: none;
+    width: 300px;
+    margin: auto;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+    background-color: rgb(119, 160, 215);
+}
+
+#changePassword:hover{
+    background-color: rgb(55, 92, 140);
+    cursor: pointer;
+}
+
+#changeEmail{
+    margin-top: 20px;
+    border: none;
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+    background-color: rgb(64, 102, 151);
+}
+
+#changeEmail:hover{
+    background-color: rgb(27, 61, 105);
+    cursor: pointer;
+}
+
+.cards-container{
+    height: 80vh;
+    width: 50%;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 10px;
+    
+}
+
+.grid-card {
+    background-color: #f2f2f2;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    font-size: 30px;
+
+    .card-title
+    {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+    }
+  }
