@@ -20,13 +20,17 @@ export class EventService {
     return this.http.get<Event>(this.base_url+`/getEventById?id=${id}`)
   }
 
-  edit_event(event:Event){
+  editEvent(event:Event){
     event.description="123"
     return this.http.put<any>(this.base_url,event)
   }
 
-  add_event(event: Event) {
+  addEvent(event: Event) {
     event.description="123"
     return this.http.post<any>(this.base_url,event)
+  }
+
+  searchEvent(title:string){
+    //PLS IMPLEMENT
   }
 }

@@ -33,8 +33,7 @@ export class AddEventComponent {
   submitForm(){
 
     if(this.addEventForm.valid){
-      console.log(this.addEventForm.value)
-      this.eventService.add_event(this.addEventForm.value).subscribe({
+      this.eventService.addEvent(this.addEventForm.value).subscribe({
         next:(res)=>{
           alert(res.message)
         }

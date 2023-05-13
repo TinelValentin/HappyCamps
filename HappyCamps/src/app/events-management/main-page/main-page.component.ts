@@ -23,7 +23,7 @@ export class MainPageComponent {
   pageSize = 10;
   pageIndex = 1;
   searchText:string;
-  canDisplay = false;
+  canDisplay = true;
   menuItems: MenuItem[] = []
   public upcomingEvents: Event[] = [];
 
@@ -83,7 +83,7 @@ export class MainPageComponent {
       nzContent: SelectEventComponent,
       nzFooter: null,
       nzComponentParams: { selectedEvent: event },
-      nzWidth:100,
+      nzWidth:1000,
     })
   }
 
@@ -105,7 +105,9 @@ export class MainPageComponent {
       }
     })
   }
-  search(searchText:String){
-
+ 
+  search(text:String)
+  {
+    //TODO: IMPLEMENT SEARCH, I CANT CUZ MOCK
   }
 }

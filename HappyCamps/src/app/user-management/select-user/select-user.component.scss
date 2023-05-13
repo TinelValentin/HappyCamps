@@ -3,23 +3,27 @@
 }
 
 .image-container {
-    height: 500px;
-    width: 500px;
+    height: 300px;
+    width: 300px;
     border-radius: 15px;
-    background: url("/assets/profile.jpg");
+    background: url("/assets/profileIcon.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    h2{
+        margin-top: 400px;
+    }
 }
 
 .event-information-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 800px;
+    width: 600px;
     margin-left: 20px;
 }
 

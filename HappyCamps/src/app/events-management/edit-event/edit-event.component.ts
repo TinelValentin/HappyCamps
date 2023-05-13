@@ -23,7 +23,6 @@ export class EditEventComponent {
   }
 
   private initializeForm(){
-    console.log(this.eventToEdit)
     this.editEventForm= this.fb.group({
       id:[this.eventToEdit.id,[Validators.required]],
       startDate:[this.eventToEdit.startDate,[Validators.required]],
@@ -38,7 +37,7 @@ export class EditEventComponent {
   submitForm(){
     if(this.editEventForm.valid){
       console.log(this.editEventForm.value)
-      this.eventsService.edit_event(this.editEventForm.value).subscribe({
+      this.eventsService.editEvent(this.editEventForm.value).subscribe({
         next:(res)=>{
           alert(res.message)
         }

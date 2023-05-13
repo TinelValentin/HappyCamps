@@ -1,13 +1,13 @@
 <app-navigation-bar [menuItems]="menuItems"></app-navigation-bar>
-<nz-table nzShowSizeChanger [nzData]="listOfUsers" [nzFrontPagination]="false" [nzTotal]="total"
-  [nzPageSize]="pageSize" [nzPageIndex]="pageIndex" (nzQueryParams)="onQueryParamsChange($event)">
+<nz-table nzShowSizeChanger [nzData]="listOfUsers" [nzFrontPagination]="false" [nzTotal]="total" [nzPageSize]="pageSize"
+  [nzPageIndex]="pageIndex" (nzQueryParams)="onQueryParamsChange($event)">
   <thead>
     <tr>
       <th nzColumnKey="image" [width]="280">
         <div class="search-container">
           <label for="search">Search User</label>
-          <input type="text" id="search" class="search-bar" placeholder="Search..."
-            (ngModelChange)="search($event)" [(ngModel)]="searchText" />
+          <input type="text" id="search" class="search-bar" placeholder="Search..." (ngModelChange)="search($event)"
+            [(ngModel)]="searchText" />
         </div>
       </th>
       <th nzColumnKey="firstName" [nzSortFn]="true">First Name</th>
@@ -28,11 +28,24 @@
       <td>{{ data.lastName }}</td>
       <td>{{ data.email }}</td>
       <td>{{ data.phoneNumber }}</td>
-      <td>{{ data.isAspirant }}</td>
-      <td>{{ data.accepted }}</td>
-      <td>{{ data.isActive }}</td>
       <td>
-        <button  *ngIf="isAdmin" class="edit-button" (click)="editUser(data)">
+        <button class="toggle-button" (click)="toggleIsAspirant(data)">
+          <img src="./assets/acceptColoredIcon.png" width="35" height="35" alt="Button Image" *ngIf="data.isAspirant">
+          <img src="./assets/denyColoredIcon.png" width="20" height="20" alt="Button Image" *ngIf="!data.isAspirant">
+        </button>
+      </td>
+      <td><button class="toggle-button" (click)="toggleAccepted(data)">
+          <img src="./assets/acceptColoredIcon.png" width="35" height="35" alt="Button Image" *ngIf="data.accepted">
+          <img src="./assets/denyColoredIcon.png" width="20" height="20" alt="Button Image" *ngIf="!data.accepted">
+        </button>
+      </td>
+      <td><button class="toggle-button" (click)="toggleIsActive(data)">
+          <img src="./assets/acceptColoredIcon.png" width="35" height="35" alt="Button Image" *ngIf="data.isActive">
+          <img src="./assets/denyColoredIcon.png" width="20" height="20" alt="Button Image" *ngIf="!data.isActive">
+        </button>
+      </td>
+      <td>
+        <button *ngIf="isAdmin" class="edit-button" (click)="editUser(data)">
           <span nz-icon nzType="edit" nzTheme="outline"></span>
           Edit </button>
       </td>

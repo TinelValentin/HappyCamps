@@ -1,5 +1,6 @@
 .page-layout{
     display: flex;
+    border-radius: 20px;
 }
 
 .image-container {
@@ -26,5 +27,20 @@
 .information-group{
     display: flex;
     flex-direction: column;
+}
 
+#participateButton{
+    border: none;
+    font-size: 20px;
+    font-weight: 500;
+    background-color: rgba(116, 214, 75, 0.753);
+    color: white;
+    border-radius: 10px;
+    width: 200px;
+    margin: auto;
+}
+
+#participateButton:hover{
+    background-color: rgba(38, 125, 0, 0.753);
+    cursor: pointer;
 }

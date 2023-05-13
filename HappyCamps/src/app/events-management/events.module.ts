@@ -14,13 +14,15 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
 import { AddEventComponent } from './add-event/add-event.component';
 import { SelectEventComponent } from './select-event/select-event.component';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
     MainPageComponent,
     EditEventComponent,
     AddEventComponent,
-    SelectEventComponent
+    SelectEventComponent,
+    SearchBarComponent
   ],
   imports: [
     CommonModule,
