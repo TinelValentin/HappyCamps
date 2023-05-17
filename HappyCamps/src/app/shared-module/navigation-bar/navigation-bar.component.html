@@ -1,9 +1,11 @@
 <div class="navigation-bar">
     <div>
         <div class="navigation-buttons-container" *ngIf="menuItems!!">
-            <a *ngFor="let menuItem of menuItems" (click)="navigate(menuItem)">
-                {{menuItem.name}}
-            </a>
+            <div *ngFor="let menuItem of menuItems"  >
+                <a *ngIf="menuItem.display" (click)="navigate(menuItem)">
+                    {{menuItem.name}}
+                </a>
+            </div>
         </div>
     </div>
     <div class="logo-textless-container">
