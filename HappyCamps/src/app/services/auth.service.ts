@@ -62,7 +62,7 @@ export class AuthService {
   }
 
   getRoleFromToken(){
-    debugger
+    
     let userPayload = this.decodedToken()
     if(userPayload){
       return userPayload.role;

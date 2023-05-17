@@ -23,7 +23,7 @@ export class MainPageComponent {
   pageSize = 10;
   pageIndex = 1;
   searchText:string;
-  canDisplay = true;
+  canDisplay = false;
   menuItems: MenuItem[] = []
   public upcomingEvents: Event[] = [];
 
@@ -31,7 +31,6 @@ export class MainPageComponent {
 
   ngOnInit() {
     this.menuItems = this.navigationService.getMenuItems()
-
     if(this.auth.getRoleFromToken() == Roles.ORGANIZER || this.auth.getRoleFromToken() == Roles.ADMIN){
       this.canDisplay=true
     }

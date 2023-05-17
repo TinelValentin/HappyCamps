@@ -26,6 +26,8 @@ interface ColumnItem {
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent {
+
+
   listOfUsers: User[] = []
 
   total = 1;
@@ -71,5 +73,17 @@ export class UsersComponent {
 
   editUser(user:User){
     
+  }
+
+  toggleIsAspirant(user: User) {
+    user.isAspirant = !user.isAspirant
+  }
+
+  toggleIsActive(user: User) {
+    user.isActive = !user.isActive
+  }
+  
+  toggleAccepted(user: User) {
+    user.accepted = !user.accepted
   }
 }
